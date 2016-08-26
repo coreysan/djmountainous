@@ -256,7 +256,8 @@ a {
     background-color: #0aab07; }
 
 ul.banner-social-buttons {
-  margin-top: 0; }
+  margin-top: 0;
+  margin-bottom: 10px; }
   @media (max-width: 1199px) {
     ul.banner-social-buttons {
       margin-top: 15px; } }
