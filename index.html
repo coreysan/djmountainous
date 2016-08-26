@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DJ Mountainous | Edgy peaks and rolling hills</title>
+    <title>
+      DJ Mountainous | Electronic music up high
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +22,11 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- Theme CSS -->
+    <link href="build/circle-player/circle.player.min.css" rel="stylesheet">
     <link href="build/all.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,9 +34,45 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      /*
+       * Instance CirclePlayer inside jQuery doc ready
+       *
+       * CirclePlayer(jPlayerSelector, media, options)
+       *   jPlayerSelector: String - The css selector of the jPlayer div.
+       *   media: Object - The media object used in jPlayer("setMedia",media).
+       *   options: Object - The jPlayer options.
+       *
+       * Multiple instances must set the cssSelectorAncestor in the jPlayer options. Defaults to "#cp_container_1" in CirclePlayer.
+       */
+
+      var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+      {
+        mp3: "http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3",
+        m4a: "http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.m4a"
+      }, {
+        cssSelectorAncestor: "#cp_container_1"
+      });
+
+      var myOtherOne = new CirclePlayer("#jquery_jplayer_2",
+      {
+        mp3: "http://djmountainous.com/mixes/dj-mountainous-va-deep-house-v2.mp3",
+        m4a: "http://djmountainous.com/mixes/dj-mountainous-va-deep-house-v2.m4a"      
+      }, {
+        cssSelectorAncestor: "#cp_container_2"
+      });
+    });
+    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
+    <div id="jquery_jplayer_1" class="cp-jplayer"></div>
+    <div id="jquery_jplayer_2" class="cp-jplayer"></div>
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -39,7 +81,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="#mixes">
                     <i class="fa fa-play-circle"></i> <span class="light">DJ</span> Mountainous
                 </a>
             </div>
@@ -52,10 +94,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Songs</a>
+                        <a class="page-scroll" href="#mixes">Mixes</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Tunes</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -70,27 +112,132 @@
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">dj Mountainous</h1>
-                        <p class="intro-text">Edgy peaks and rolling hills</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+          <div class="section-gradient bottom-gradient"></div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                    <!-- <h1 class="brand-heading">
+                      dj Mountainous
+                    </h1>
+                    <p class="intro-text">
+                      Electronic music up high
+                    </p> -->
+
+                    <!-- jump-to-mixes button -->
+
+                    <!-- <a href="#mixes" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a> -->
+                  </div>
+              </div>
+          </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="mixes" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Tunes</h2>
+                <h2>Mixes</h2>
+                <hr class="mini-under-header">
+                    <!-- A wrapper to emulate use in a webpage and center align -->
 
-                
+                    <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
+
+                  <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="mix">
+                        <h3>Runs the Trap</h3>
+                        <h5>
+                          <span class="genres progressive">
+                            Trap &amp; Dubstep
+                          </span> 
+                             
+                           <span class="date way-subdued">August 2016</span>
+                        </h5>
+
+
+                        <div id="cp_container_1" class="cp-container">
+                          <div class="cp-buffer-holder"> 
+                            <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                            <div class="cp-buffer-1"></div>
+                            <div class="cp-buffer-2"></div>
+                          </div>
+                          <div class="cp-progress-holder"> 
+                            <!-- .cp-gt50 only needed when progress is > than 50% -->
+                            <div class="cp-progress-1"></div>
+                            <div class="cp-progress-2"></div>
+                          </div>
+                          <div class="cp-circle-control"></div>
+                          <ul class="cp-controls">
+                            <li><a class="cp-play" tabindex="1">play</a></li>
+                            <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+                            <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div><!-- .col -->
+
+<!--                     <div class="col-sm-4 col-xs-12">
+                      <div class="mix">
+                        <h3>S-Lions</h3>
+                        <h5>
+                          <span class="genres progressive">
+                            Dreamy bass
+                          </span> 
+                             
+                           <span class="date way-subdued">July 2016</span>
+                        </h5>
+
+                        <div id="cp_container_2" class="cp-container">
+                          <div class="cp-buffer-holder"> 
+                            <div class="cp-buffer-1"></div><div class="cp-buffer-2"></div>
+                          </div>
+                          <div class="cp-progress-holder"> 
+                            <div class="cp-progress-1"></div>
+                            <div class="cp-progress-2"></div></div>
+                          <div class="cp-circle-control"></div>
+                          <ul class="cp-controls">
+                            <li><a class="cp-play" tabindex="1">play</a></li>
+                            <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+                          </ul>
+                        </div>
+                      </div>
+                    </div><!-- .col -->
+
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="mix">
+
+                        <h3>Garibaldi</h3>
+                        <h5>
+                          <span class="genres progressive">
+                            Deep House
+                          </span> 
+                             
+                           <span class="date way-subdued">June 2016</span>
+                        </h5>
+
+                        <div id="cp_container_2" class="cp-container">
+                          <div class="cp-buffer-holder"> 
+                            <div class="cp-buffer-1"></div><div class="cp-buffer-2"></div>
+                          </div>
+                          <div class="cp-progress-holder"> 
+                            <div class="cp-progress-1"></div><div class="cp-progress-2"></div>
+                          </div>
+                          <div class="cp-circle-control"></div>
+                          <ul class="cp-controls">
+                            <li><a class="cp-play" tabindex="1">play</a></li>
+                            <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+                          </ul>
+                        </div>
+                      </div>
+                    </div><!-- .col -->
+
+                  </div><!-- .row -->
+
+                   
+
+                    
 
                 <!-- <p></p> -->
 
@@ -100,15 +247,29 @@
     </section>
 
     <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>About</h2>
-                    <p>Elevate your private party with brand-spanking-new electro tunes. Impress with the latest soothing deep-house <em>to</em> amped up progressive <em>to</em> grimey drum &amp; bass or dubstep.</p>
-                </div>
+    <section id="about" class="content-section text-center">
+      <div class="about-section">
+        <div class="section-gradient top-gradient"></div>
+        <div class="section-gradient bottom-gradient"></div>
+        <div class="inside-about">
+          <div class="container">
+            <div class="col-lg-8 col-lg-offset-2">
+              <h2>About</h2>
+              <p>
+                I play parties for groups that enjoy electronic dance music
+              </p> 
+              <p>
+                From  
+                <span class="progressive">deep-house</span> to 
+                <span class="progressive">trap</span> and from
+                <br>
+                 <span class="progressive">tropical house</span>.
+                to <span class="progressive">drum &amp; bass</span>
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
@@ -121,13 +282,16 @@
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        <a href="https://twitter.com/djmountainous" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                     </li>
                     <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        <a href="https://facebook.com/djmountainous" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                     </li>
                     <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                        <a href="https://www.instagram.com/djmountainous/" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.soundcloud.com/djmountainous/" class="btn btn-default btn-lg"><i class="fa fa-soundcloud fa-fw"></i> <span class="network-name">SoundCloud</span></a>
                     </li>
                 </ul>
             </div>
@@ -140,12 +304,9 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
+            <p>Copyright &copy; DJ Mountainous 2016</p>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

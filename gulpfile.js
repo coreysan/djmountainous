@@ -44,9 +44,19 @@ gulp.task('minify-css', function() {
         }))  
 });
 
-// Minify JS
+
+//== JS SECTION START ==\\
+
+// 1 concat all the JS files into one
+gulp.task('concat', function(){
+  return gulp.src(['js/*.js', 'js/circle-player/*.js'])
+          .pipe(concat('/build/all.js'))
+          .pipe(gulp.dest('./js'))
+});
+
+// 2 minify that one js file, using the banner defined at top
 gulp.task('minify-js', function() {
-  return gulp.src('js/all.js')
+  return gulp.src('build/all.js')
       .pipe(uglify())
       .pipe(header(banner, { pkg: pkg }))
       .pipe(rename({ suffix: '.min' }))
@@ -56,11 +66,6 @@ gulp.task('minify-js', function() {
       }))
 });
 
-gulp.task('concat', function(){
-  return gulp.src(['js/grayscale.js', 'js/site.js'])
-          .pipe(concat('all.js'))
-          .pipe(gulp.dest('./js'))
-});
 
 // Copy Bootstrap core files from node_modules to vendor directory
 gulp.task('bootstrap', function() {

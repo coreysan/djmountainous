@@ -36,13 +36,13 @@ p {
       line-height: 1.6; } }
 
 a {
-  color: #42DCA3;
+  color: #0aab07;
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out; }
   a:hover, a:focus {
     text-decoration: none;
-    color: #1d9b6c; }
+    color: #044903; }
 
 .light {
   font-weight: 400; }
@@ -103,7 +103,7 @@ a {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background: url(../img/mountainous-banner.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -182,16 +182,45 @@ a {
 .content-section {
   padding-top: 100px; }
 
-.download-section {
+.about-section {
+  position: relative;
   width: 100%;
-  padding: 50px 0;
   color: white;
-  background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+  background: url(../img/logo-banner-tall.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover; }
+
+.section-gradient {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80px; }
+  .section-gradient.top-gradient {
+    top: 0;
+    background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.02) 99%, rgba(0, 0, 0, 0.01) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.02) 99%, rgba(0, 0, 0, 0.01) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.02) 99%, rgba(0, 0, 0, 0.01) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#03000000',GradientType=0 );
+    /* IE6-9 */ }
+  .section-gradient.bottom-gradient {
+    bottom: 0;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.99) 99%, black 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.99) 99%, black 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 1%, rgba(0, 0, 0, 0.99) 99%, black 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03000000', endColorstr='#000000',GradientType=0 );
+    /* IE6-9 */ }
+
+.inside-about {
+  padding: 80px 0; }
 
 #map {
   width: 100%;
@@ -201,8 +230,8 @@ a {
 @media (min-width: 767px) {
   .content-section {
     padding-top: 250px; }
-  .download-section {
-    padding: 100px 0; }
+  .inside-about {
+    padding: 140px 0; }
   #map {
     height: 400px;
     margin-top: 250px; } }
@@ -217,14 +246,14 @@ a {
   border-radius: 0; }
 
 .btn-default {
-  border: 1px solid #42DCA3;
-  color: #42DCA3;
+  border: 1px solid #0aab07;
+  color: #0aab07;
   background-color: transparent; }
   .btn-default:hover, .btn-default:focus {
-    border: 1px solid #42DCA3;
+    border: 1px solid #0aab07;
     outline: none;
     color: black;
-    background-color: #42DCA3; }
+    background-color: #0aab07; }
 
 ul.banner-social-buttons {
   margin-top: 0; }
@@ -267,5 +296,67 @@ body {
  * DJ Mountainous - Dj Mountainous v1.1.1 (djmountainous.com)
  * Copyright 2016-2016 Corey Sanford
  */
-h1 {
-  color: red; }
+.deep-house {
+  color: #8fdeff; }
+
+.progressive {
+  color: #0aab07; }
+
+.drum-bass {
+  color: #f6ff8f; }
+
+.dreamstep {
+  color: #ff8f98; }
+
+.subdued {
+  color: #999; }
+
+.more-subdued {
+  color: #bbb; }
+
+.way-subdued {
+  color: #999; }
+
+header .section-gradient {
+  height: 140px; }
+
+.content-section {
+  padding-top: 200px; }
+
+#about.content-section {
+  padding-top: 140px; }
+
+@media (min-width: 768px) {
+  .intro .intro-body .brand-heading {
+    color: white;
+    font-size: 80px; } }
+
+h2 {
+  margin-bottom: 10px; }
+
+.mix h3 {
+  margin-bottom: 11px; }
+
+.mix .h3,
+.mix .h5 {
+  font-weight: normal; }
+
+.mix .date {
+  font-style: italic; }
+
+hr {
+  width: 69px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border-top: 2px solid #0aab07; }
+
+/* Audio player overrides */
+.cp-controls li a {
+  transition: none; }
+
+.cp-container {
+  height: 200px;
+  min-width: 200px;
+  margin: -38px auto 0;
+  background-position-y: -30px;
+  padding: 18px 48px; }
