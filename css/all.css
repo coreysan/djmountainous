@@ -103,7 +103,7 @@ a {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/mountainous-banner.jpg) no-repeat bottom center scroll;
+  background: url(../img/mountainous-banner.jpg) no-repeat center 60px scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -323,9 +323,29 @@ header .section-gradient {
 
 .content-section {
   padding-top: 200px; }
+  .content-section#mixes {
+    padding-top: 100px; }
+
+section#waves {
+  margin-top: 80px; }
 
 #about.content-section {
   padding-top: 140px; }
+
+.navbar-brand .name-wrapper {
+  position: relative;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8); }
+  .navbar-brand .name-wrapper .video-wrapper {
+    position: absolute;
+    top: -4px;
+    left: 3px;
+    z-index: -1; }
+    .navbar-brand .name-wrapper .video-wrapper video.name-waves {
+      max-width: 202px; }
+
+video.section-waves {
+  width: 100% !important;
+  height: auto; }
 
 @media (min-width: 768px) {
   .intro .intro-body .brand-heading {
