@@ -15,16 +15,23 @@
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.10",
     "gulp-concat": "^2.6.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
     "gulp-header": "^1.8.8",
     "gulp-less": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^1.5.4",
+    "gulp-wrap": "^0.13.0",
     "handlebars": "^4.0.5",
     "jquery": "^1.11.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/BlackrockDigital/startbootstrap-grayscale.git"
+  },
+  "dependencies": {
+    "gulp-sourcemaps": "^1.6.0",
+    "handlebars": "^4.0.5"
   }
 }

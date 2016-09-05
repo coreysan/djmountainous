@@ -7,6 +7,11 @@ var cleanCSS    = require('gulp-clean-css');
 var rename      = require("gulp-rename");
 var concat      = require("gulp-concat");
 var uglify      = require('gulp-uglify');
+var sourcemaps  = require('gulp-sourcemaps');
+
+var handlebars  = require('gulp-handlebars');
+var wrap        = require('gulp-wrap');
+var declare     = require('gulp-declare');
 
 var pkg         = require('./package.json');
 
@@ -46,25 +51,48 @@ gulp.task('minify-css', function() {
 
 
 //== JS SECTION START ==\\
-
 // 1 concat all the JS files into one
 gulp.task('concat', function(){
-  return gulp.src(['js/*.js', 'js/circle-player/*.js'])
+  return gulp.src([ //'js/templates/*.js', 
+                    'js/circle-player/*.js',
+                    'js/grayscale.js',  
+                    'js/site.js'
+                    ])
           .pipe(concat('/build/all.js'))
-          .pipe(gulp.dest('./js'))
+          .pipe(gulp.dest('.'))
 });
+
+//gulp handlebar templates into templates.js
+// can't get this to work
+// gulp.task('templates', function(){
+//   gulp.src('js/templates/*.handlebars')
+//     .pipe(handlebars({
+//       handlebars: require('handlebars')
+//     }))
+//     .pipe(wrap('Handlebars.template(<%= contents %>)'))
+//     // .pipe(declare({
+//     //   namespace: 'MyApp.templates',
+//     //   noRedeclare: true, // Avoid duplicate declarations 
+//     // }))
+//     .pipe(concat('templates.js'))
+//     .pipe(gulp.dest('./build'));
+// });
 
 // 2 minify that one js file, using the banner defined at top
 gulp.task('minify-js', function() {
   return gulp.src('build/all.js')
+      .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(header(banner, { pkg: pkg }))
       .pipe(rename({ suffix: '.min' }))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest('./build'))
       .pipe(browserSync.reload({
           stream: true
       }))
 });
+
+
 
 
 // Copy Bootstrap core files from node_modules to vendor directory

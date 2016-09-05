@@ -39,11 +39,6 @@ header .section-gradient{
   }
 }
 
-section#waves
-{
-  margin-top: 80px;
-}
-
 #about.content-section {
   padding-top: 140px;
 }
@@ -53,7 +48,7 @@ section#waves
   .name-wrapper{
     position: relative;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
-
+ 
     .video-wrapper{
       position: absolute;
       top: -4px;
@@ -64,15 +59,87 @@ section#waves
         max-width: 202px;
       }
     }
-
-
   }  
-
 }
 
-video.section-waves{
-  width: 100% !important;
-  height: auto;
+section#waves
+{
+  margin-top: 80px;
+  margin-bottom: 120px;
+  position: relative;
+
+  .wave-row{
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+
+    .mixes-title{
+      position: absolute;
+      width: 100%;    
+      z-index: 100;
+      text-align: center;
+      top: 27px;
+    }
+
+    .wave-wrapper{
+
+      overflow: hidden;
+      position: relative;
+
+      .wave-gradient{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+      }
+      .left-gradient{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+50,1+99 */
+        background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,1) 99%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+
+      }
+      .right-gradient{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+50 */
+        background: -moz-linear-gradient(left,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 70%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 70%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+      }
+
+      video.section-waves{
+        width: 100% !important;
+        height: auto;
+
+        // position: relative;
+
+        &.left{
+          left: 3px;
+        }
+        &.right{
+          left: -3px;
+        }
+
+
+        &.rev{
+          -moz-transform: scaleX(-1);
+          -o-transform: scaleX(-1);
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          filter: FlipH;
+          -ms-filter: "FlipH";
+        }
+      }
+    }
+  }
+
 }
 
 @media (min-width: 768px){
@@ -119,9 +186,14 @@ hr{
   transition: none;
 }
 .cp-container{
-  height: 200px;
+  height: 135px;
   min-width: 200px;
   margin: -38px auto 0;
   background-position-y: -30px;
-  padding: 18px 48px;
+  padding: 18px 48px 0;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
 }
