@@ -3372,7 +3372,7 @@ window.Modernizr=function(a,b,c){function G(){}function F(a,b){var c=a.charAt(0)
 
 // jQuery to collapse the navbar on scroll
 function collapseNavbar() {
-    if ($(".navbar").offset().top > 50) {
+    if ($(".navbar").offset().top > $("#waves").offset().top - 150) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
