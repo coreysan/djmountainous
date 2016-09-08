@@ -67,7 +67,10 @@
                     <i class="fa fa-play-circle"></i> 
                     <span class="light">DJ</span> Mountainous
                     <div class="video-wrapper">
-                      <video class="name-waves" autoplay loop muted >
+                      <video class="name-waves" 
+                            autoplay loop muted 
+                            controls="false"
+                            poster="img/wave-black.jpg">>
                         <source src="waves.mp4" type="video/mp4">
                       </video>
                     </div>
@@ -120,16 +123,16 @@
     <section id="waves">
       <div class="row no-gutter wave-row">
   
-        <h2 class="mixes-title">Mixes</h2>
+        <div class="mixes-title-wrapper">
+          <h2 class="mixes-title">Mixes</h2>
+        </div>
 
         <div class="col-xs-6">
           <div class="wave-wrapper">
             <video class="section-waves left" 
                     autoplay loop muted 
-                    controls="false"
-                    poster="img/wave.jpg">
+                    poster="img/wave-black.jpg">
               <source src="waves.mp4" type="video/mp4">
-              <img src="img/wave.jpg" alt="">
             </video>
             <div class="wave-gradient left-gradient"></div>
           </div>
@@ -138,10 +141,8 @@
           <div class="wave-wrapper">
             <video class="section-waves right rev" 
                     autoplay loop muted 
-                    controls="false"
-                    poster="img/wave.jpg">
+                    poster="img/wave-black.jpg">
               <source src="waves.mp4" type="video/mp4">
-              <img src="img/wave.jpg" alt="">
             </video>
             <div class="wave-gradient right-gradient"></div>
           </div>

@@ -343,12 +343,16 @@ section#waves {
     top: 0;
     width: 100%;
     margin: 0; }
-    section#waves .wave-row .mixes-title {
+    section#waves .wave-row .mixes-title-wrapper {
       position: absolute;
       width: 100%;
-      z-index: 100;
-      text-align: center;
-      top: 27px; }
+      height: 100%;
+      z-index: 100; }
+      section#waves .wave-row .mixes-title-wrapper .mixes-title {
+        text-align: center;
+        position: relative;
+        top: 45%;
+        transform: translateY(-45%); }
     section#waves .wave-row .wave-wrapper {
       overflow: hidden;
       position: relative; }
@@ -432,6 +436,7 @@ hr {
   padding-right: 0;
   padding-left: 0; }
 
+/* Hide the play button on the html5 video attribute on iphones! */
 /* This used to work for parent element of button divs */
 /* But it is not enough now, below dont hide play button parent div */
 *::-webkit-media-controls-panel {
