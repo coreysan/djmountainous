@@ -352,7 +352,9 @@ section#waves {
         text-align: center;
         position: relative;
         top: 45%;
-        transform: translateY(-45%); }
+        transform: translateY(-45%);
+        -webkit-transform: translateY(-45%);
+        -ms-transform: translateY(-45%); }
     section#waves .wave-row .wave-wrapper {
       overflow: hidden;
       position: relative; }
