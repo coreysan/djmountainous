@@ -24,7 +24,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'concat', 'minify-js', 'copy']);
 
 // Sass task to compile the sass files and add the banner
 gulp.task('sass', function() {
@@ -94,7 +94,6 @@ gulp.task('minify-js', function() {
 
 
 
-
 // Copy Bootstrap core files from node_modules to vendor directory
 gulp.task('bootstrap', function() {
     return gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
@@ -130,7 +129,7 @@ gulp.task('browserSync', function() {
             baseDir: ''
         },
     })
-})
+});
 
 // Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
 gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
@@ -141,7 +140,6 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() 
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
 });
-
 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);

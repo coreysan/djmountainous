@@ -3406,8 +3406,15 @@ $(function  () {
 
   var data = {
     mixes: [
+      //new mix goes here
       {
-        title: "Runs the trap",
+        title: "The Eiger",
+        genres: "Tech House",
+        date: "Sept 2016",
+        slug: "dj-mountainous-va-tech-house"
+      },
+      {
+        title: "Black Tusk",
         genres: "Trap & Dubstep",
         date: "August 2016",
         slug: "dj-mountainous-va-dubtrap"
@@ -3417,7 +3424,8 @@ $(function  () {
         genres: "Deep House",
         date: "June 2016",
         slug: "dj-mountainous-va-deep-house-v2"
-      }
+      },
+      
     ]
   };
 
@@ -3426,10 +3434,6 @@ $(function  () {
 
   //set up the audio players
   initCirclePlayers(data.mixes);
-
-
-
-
 
 
   function injectTemplates(data){
