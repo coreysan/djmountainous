@@ -13,6 +13,8 @@
       DJ Mountainous | Vancouver, BC | Canada
     </title>
 
+
+    <meta property="og:app_id"             content="1414601628553551" />
     <meta property="og:url"                content="http://djmountainous.com" />
     <meta property="og:type"               content="profile" />
     <meta property="og:title"              content="DJ Mountainous | Vancouver, B.C. | Canada" />
@@ -55,6 +57,24 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1414601628553551',
+        xfbml      : true,
+        version    : 'v2.6'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 
     <div id="jplayers-tmpl">
       <!-- handlebars playback area -->cal
