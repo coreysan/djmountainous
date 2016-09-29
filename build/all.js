@@ -3408,6 +3408,11 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
+        title: "Live @ BirthRave 2016",
+        genres: "Bass Funk, Trap, Dub",
+        date: "Sept 24, 2016",
+        slug: "dj-mountainous-live-birthrave-2016-bass-funk-dub"
+      },{
         title: "The Eiger",
         genres: "Tech House",
         date: "Sept 2016",

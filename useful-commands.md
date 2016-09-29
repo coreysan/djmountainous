@@ -5,8 +5,7 @@
 handlebars js/templates/> build/templates.js
 
 
-
-* Create a git hook
+* Create a git hook (failed - server not with recent enough git)
 Goal: pull automatically when repo is pushed to. 
 On server: 
 $ cd /your-project/.git/hooks
