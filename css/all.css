@@ -322,6 +322,10 @@ header .section-gradient {
 #about.content-section {
   padding-top: 140px; }
 
+#mix-list {
+  position: absolute;
+  top: -60px; }
+
 .navbar-brand .name-wrapper {
   position: relative;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8); }
