@@ -9,24 +9,28 @@ $(function  () {
         title: "Live @ BirthRave 2016",
         genres: "Bass Funk, Trap, Dub",
         date: "Sept 24, 2016",
-        slug: "dj-mountainous-live-birthrave-2016-bass-funk-dub"
+        slug: "dj-mountainous-live-birthrave-2016-bass-funk-dub",
+        rating: 7
       },{
         title: "The Eiger",
         genres: "Tech House",
         date: "Sept 2016",
-        slug: "dj-mountainous-va-tech-house"
-      },
-      {
+        slug: "dj-mountainous-va-tech-house",
+        rating: 4
+      }, 
+      { 
         title: "Black Tusk",
         genres: "Trap & Dubstep",
         date: "August 2016",
-        slug: "dj-mountainous-va-dubtrap"
+        slug: "dj-mountainous-va-dubtrap",
+        rating: 8
       },
       {
         title: "Garibaldi",
         genres: "Deep House",
         date: "June 2016",
-        slug: "dj-mountainous-va-deep-house-v2"
+        slug: "dj-mountainous-va-deep-house-v2",
+        rating: 1
       },
       
     ]

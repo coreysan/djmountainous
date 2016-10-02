@@ -24,7 +24,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'concat', 'minify-js', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
 
 // Sass task to compile the sass files and add the banner
 gulp.task('sass', function() {
@@ -52,15 +52,15 @@ gulp.task('minify-css', function() {
 
 //== JS SECTION START ==\\
 // 1 concat all the JS files into one
-gulp.task('concat', function(){
-  return gulp.src([ //'js/templates/*.js', 
-                    'js/circle-player/*.js',
-                    'js/grayscale.js',  
-                    'js/site.js'
-                    ])
-          .pipe(concat('/build/all.js'))
-          .pipe(gulp.dest('.'))
-});
+// gulp.task('concat', function(){
+//   return gulp.src([ //'js/templates/*.js', 
+//                     'js/circle-player/*.js',
+//                     'js/grayscale.js',  
+//                     'js/site.js'
+//                     ])
+//           .pipe(concat('/build/all.js'))
+//           .pipe(gulp.dest('.'))
+// });
 
 //gulp handlebar templates into templates.js
 // can't get this to work
@@ -80,18 +80,27 @@ gulp.task('concat', function(){
 
 // 2 minify that one js file, using the banner defined at top
 gulp.task('minify-js', function() {
-  return gulp.src('build/all.js')
+  return gulp.src( [//'js/templates/*.js', 
+                    'js/circle-player/*.js',
+                    'js/grayscale.js',  
+                    'js/site.js'
+                    ])
       .pipe(sourcemaps.init())
-      .pipe(uglify())
-      .pipe(header(banner, { pkg: pkg }))
-      .pipe(rename({ suffix: '.min' }))
+        .pipe(concat('all.js'))
+        // .pipe(gulp.dest('build'))
+        .pipe(rename({
+          // basename: 'all',
+          suffix: '-min',
+          extname: '.js'
+        }))
+        .pipe(uglify())
+        .pipe(header(banner, { pkg: pkg }))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest('./build'))
-      .pipe(browserSync.reload({
-          stream: true
-      }))
+      .pipe(gulp.dest('build'))
+      // .pipe(browserSync.reload({
+      //     stream: true
+      // }))
 });
-
 
 
 // Copy Bootstrap core files from node_modules to vendor directory
@@ -144,5 +153,5 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./css/**/*.css', ['minify-css']);
-  gulp.watch('./js/**/*.js', ['concat', 'minify-js']);
+  gulp.watch('./js/**/*.js', ['minify-js']);
 });
