@@ -465,7 +465,7 @@ header .section-gradient{
 section#waves
 {
   margin-top: 80px;
-  margin-bottom: 120px;
+  margin-bottom: 160px;
   position: relative;
 
   .wave-row{
@@ -593,16 +593,25 @@ hr{
 
 /* Audio player overrides */
 
+.cp-controls{
+  position: absolute;
+  top: 33px;
+  left: 35px;    
+  margin: 0;
+  padding: 0;
+}
+
 .cp-controls li a
 {
   transition: none;
 }
 .cp-container{
-  height: 135px;
-  min-width: 200px;
-  margin: -38px auto 0;
-  background-position-y: -30px;
-  padding: 18px 48px 0;
+  height: 120px;
+  min-width: 120px;
+  margin: 0px auto 0;
+  background-position-y: -40px;
+  background-position-x: -40px;
+  padding: 0px 0px 0;
 }
 
 .no-gutter > [class*='col-'] {

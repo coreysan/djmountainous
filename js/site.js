@@ -1,3 +1,5 @@
+debugger; 
+
 $(function  () {
 
   var MIX_PATH = "http://djmountainous.com/mixes/";
@@ -36,6 +38,9 @@ $(function  () {
     ]
   };
 
+  debugger; 
+
+
   //inject handlebars templates with mix data 
   injectTemplates(data); 
 
@@ -45,10 +50,12 @@ $(function  () {
 
   function injectTemplates(data){
 
-    var html = Handlebars.templates.mixes(data);
+    var html = MyApp.templates.mixes(data);
+    // var html = Handlebars.templates.mixes(data);
     $('#mixes-tmpl').html(html);
    
-    html = Handlebars.templates.jplayers(data);
+    html = MyApp.templates.jplayers(data);
+    // html = Handlebars.templates.jplayers(data);
     $('#jplayers-tmpl').html(html);
   }
 

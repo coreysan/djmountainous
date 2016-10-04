@@ -1,4 +1,5 @@
 // Assigning modules to local variables
+var path        = require('path');
 var gulp        = require('gulp');
 var sass        = require('gulp-sass');
 var browserSync = require('browser-sync').create();
@@ -24,7 +25,7 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'templates', 'minify-js', 'copy']);
 
 // Sass task to compile the sass files and add the banner
 gulp.task('sass', function() {
@@ -51,47 +52,35 @@ gulp.task('minify-css', function() {
 
 
 //== JS SECTION START ==\\
-// 1 concat all the JS files into one
-// gulp.task('concat', function(){
-//   return gulp.src([ //'js/templates/*.js', 
-//                     'js/circle-player/*.js',
-//                     'js/grayscale.js',  
-//                     'js/site.js'
-//                     ])
-//           .pipe(concat('/build/all.js'))
-//           .pipe(gulp.dest('.'))
-// });
-
-//gulp handlebar templates into templates.js
+// gulp handlebar templates into templates.js
 // can't get this to work
-// gulp.task('templates', function(){
-//   gulp.src('js/templates/*.handlebars')
-//     .pipe(handlebars({
-//       handlebars: require('handlebars')
-//     }))
-//     .pipe(wrap('Handlebars.template(<%= contents %>)'))
-//     // .pipe(declare({
-//     //   namespace: 'MyApp.templates',
-//     //   noRedeclare: true, // Avoid duplicate declarations 
-//     // }))
-//     .pipe(concat('templates.js'))
-//     .pipe(gulp.dest('./build'));
-// });
+gulp.task('templates', function(){
+  gulp.src('js/templates/*.hbs')
+    .pipe(handlebars({
+      handlebars: require('handlebars')
+    }))
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'MyApp.templates',
+      noRedeclare: true, // Avoid duplicate declarations 
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/'));
+});
 
-// 2 minify that one js file, using the banner defined at top
-gulp.task('minify-js', function() {
-  return gulp.src( [//'js/templates/*.js', 
+gulp.task('minify-js', ['templates'], function() {
+  return gulp.src( [
+                    // templates not included in minify
+                    // cause they're not being generated-then-included properly, sequentially, asynchronously
+                    // 'build/templates.js', 
                     'js/circle-player/*.js',
                     'js/grayscale.js',  
                     'js/site.js'
                     ])
       .pipe(sourcemaps.init())
         .pipe(concat('all.js'))
-        // .pipe(gulp.dest('build'))
         .pipe(rename({
-          // basename: 'all',
-          suffix: '-min',
-          extname: '.js'
+          suffix: '-min',// why doesn't .min work here!???
         }))
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
@@ -153,5 +142,6 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./css/**/*.css', ['minify-css']);
+  gulp.watch('./js/**/*.hbs', ['templates', 'minify-js']);
   gulp.watch('./js/**/*.js', ['minify-js']);
 });
