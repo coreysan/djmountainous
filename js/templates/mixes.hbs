@@ -1,13 +1,8 @@
 {{#each mixes}}
-  <div class="col-sm-6 col-xs-12">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+    
     <div class="mix" data-rating="{{rating}}">
       <h3>{{title}}</h3>
-      <h5>
-        <span class="genres progressive"> 
-          {{genres}}
-        </span> 
-         <span class="date way-subdued">{{date}}</span>
-      </h5>
 
       <div id="cp_container_{{slug}}" class="cp-container">
         <div class="cp-buffer-holder"> 
@@ -27,10 +22,24 @@
           <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
         </ul>
       </div>
-      <div class="downloads">
-        <a href="http://djmountainous.com/mixes/{{slug}}.mp3">mp3</a>
-        <!-- <br><span class="more-subdued">(Right-click &gt; save as...)</span> -->
-      </div>  
+
+      <div class="mix__details"
+        <h5>
+          <div class="genres progressive"> 
+            <span class="rating">
+              V{{rating}}
+            </span>
+            {{genres}}
+          </div> 
+           <div class="date way-subdued">
+            {{date}}
+          </div>
+        </h5>
+        
+        <div class="downloads">
+          <a href="http://djmountainous.com/mixes/{{slug}}.mp3">mp3 dl</a>
+        </div>  
+      </div> <!-- .mix__details -->
     </div><!-- .mix -->
   </div><!-- .col -->
 {{/each}}

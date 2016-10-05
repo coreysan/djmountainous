@@ -38,9 +38,6 @@ $(function  () {
     ]
   };
 
-  debugger; 
-
-
   //inject handlebars templates with mix data 
   injectTemplates(data); 
 

@@ -5,7 +5,6 @@
 body {
   width: 100%;
   height: 100%;
-  font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
   color: white;
   background-color: black; }
 
@@ -13,10 +12,19 @@ html {
   width: 100%;
   height: 100%; }
 
+body {
+  font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+h1, h2, h3, h4, h5, h6,
+.mix,
+.navbar-custom,
+.btn,
+.downloads {
+  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif; }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 35px;
   text-transform: uppercase;
-  font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 700;
   letter-spacing: 1px; }
 
@@ -420,18 +428,43 @@ section#waves {
     color: white;
     font-size: 80px; } }
 
-h2 {
-  margin-bottom: 10px; }
-
 .mix {
-  margin-bottom: 50px; }
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 40px; }
   .mix h3 {
-    margin-bottom: 11px; }
-  .mix .h3,
-  .mix .h5 {
-    font-weight: normal; }
-  .mix .date {
-    font-style: italic; }
+    margin-bottom: 10px; }
+  .mix .mix__details {
+    margin-left: 67px; }
+    .mix .mix__details .h3,
+    .mix .mix__details .h5 {
+      font-weight: normal; }
+    .mix .mix__details .date {
+      font-style: italic; }
+  .mix .rating {
+    color: white; }
+  .mix[data-rating="1"] .rating {
+    color: #6ad1ff; }
+  .mix[data-rating="2"] .rating {
+    color: #6affe1; }
+  .mix[data-rating="3"] .rating {
+    color: #6affa4; }
+  .mix[data-rating="4"] .rating {
+    color: #9eff6a; }
+  .mix[data-rating="5"] .rating {
+    color: #d5ff6a; }
+  .mix[data-rating="6"] .rating {
+    color: #ffe800; }
+  .mix[data-rating="7"] .rating {
+    color: #ffd66a; }
+  .mix[data-rating="8"] .rating {
+    color: #ffba6a; }
+  .mix[data-rating="9"] .rating {
+    color: #d67f58; }
+  .mix[data-rating="10"] .rating {
+    color: #ff6a6a; }
 
 hr {
   width: 69px;
@@ -442,29 +475,52 @@ hr {
 /* Audio player overrides */
 .cp-controls {
   position: absolute;
-  top: 33px;
-  left: 35px;
+  top: 13px;
+  left: 13px;
   margin: 0;
   padding: 0; }
 
+.cp-buffer-holder,
+.cp-progress-holder {
+  clip: rect(0, 50px, 50px, 25px); }
+
+.cp-buffer-holder, .cp-circle-control, .cp-progress-holder, .cp-container, .cp-buffer-1, .cp-buffer-2, .cp-progress-1, .cp-progress-2 {
+  width: 50px;
+  height: 50px; }
+
 .cp-controls li a {
-  transition: none; }
+  transition: none;
+  width: 25px;
+  height: 25px; }
+
+.cp-buffer-1, .cp-buffer-2, .cp-progress-1, .cp-progress-2 {
+  clip: rect(0, 25px, 50px, 0);
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px; }
 
 .cp-container {
-  height: 120px;
-  min-width: 120px;
   margin: 0px auto 0;
-  background-position-y: -40px;
-  background-position-x: -40px;
-  padding: 0px 0px 0; }
+  margin-top: 3px;
+  background-position-y: 0;
+  background-position-x: 0;
+  padding: 0px 0px 0;
+  float: left; }
+
+.cp-controls .cp-play:hover {
+  background-position-x: -24px; }
+
+.cp-controls .cp-pause {
+  background-position-y: -24px; }
+
+.cp-controls .cp-pause:hover {
+  background-position-x: -24px;
+  background-position-y: -24px; }
 
 .no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0; }
 
-/* Hide the play button on the html5 video attribute on iphones! */
-/* This used to work for parent element of button divs */
-/* But it is not enough now, below dont hide play button parent div */
 *::-webkit-media-controls-panel {
   display: none !important;
   -webkit-appearance: none; }
