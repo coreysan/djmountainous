@@ -8,11 +8,17 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
+        title: "Seven Lions Warm-up",
+        genres: "Dreamstep",
+        date: "October 2016",
+        slug: "djmountainous-seven-lions-warm-up-mix",
+        rating: 7
+      },{
         title: "Live @ BirthRave 2016",
         genres: "Bass Funk, Trap, Dub",
         date: "Sept 24, 2016",
         slug: "dj-mountainous-live-birthrave-2016-bass-funk-dub",
-        rating: 7
+        rating: 8
       },{
         title: "The Eiger",
         genres: "Tech House",
@@ -25,7 +31,7 @@ $(function  () {
         genres: "Trap & Dubstep",
         date: "August 2016",
         slug: "dj-mountainous-va-dubtrap",
-        rating: 8
+        rating: 9
       },
       {
         title: "Garibaldi",
