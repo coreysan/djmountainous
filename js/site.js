@@ -52,11 +52,9 @@ $(function  () {
   injectTemplates(calm_mixes,     'calm');
 
   //set up the audio players
-  initCirclePlayers(calm_mixes.mixes);
+  initCirclePlayers(calm_mixes.mixes); 
   initCirclePlayers(intense_mixes.mixes);
   
-  console.log("Mixes outside func: " + mixes);
-
   function injectTemplates(data, type){
 
     var html = MyApp.templates.mixes(data);
@@ -64,10 +62,10 @@ $(function  () {
    
     html = MyApp.templates.jplayers(data);
     $('#jplayers-tmpl-'+type).html(html);
-  } 
+  }  
 
   function initCirclePlayers(mix_list){
-    console.log("mix_list INSIDE func: " + mix_list);
+
     mix_list.forEach(function(mix){
       new CirclePlayer(
         "#jquery_jplayer_"+mix.slug,

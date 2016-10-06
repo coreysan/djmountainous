@@ -12,7 +12,7 @@ function collapseNavbar() {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
 }
-
+ 
 $(window).scroll(collapseNavbar);
 $(document).ready(collapseNavbar);
 

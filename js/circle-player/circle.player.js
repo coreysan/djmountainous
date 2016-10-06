@@ -67,6 +67,8 @@ var CirclePlayer = function(jPlayerSelector, media, options) {
 	this.options = $.extend(true, {}, defaults, options); // Deep copy
 
 	this.cssTransforms = Modernizr.csstransforms;
+  this.cssTransforms = null;
+
 	this.audio = {};
 	this.dragging = false; // Indicates if the progressbar is being 'dragged'.
 
