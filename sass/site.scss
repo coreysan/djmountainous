@@ -23,7 +23,8 @@ h1,h2,h3,h4,h5,h6,
 .mix,
 .navbar-custom,
 .btn,
-.downloads {
+.downloads,
+.bottom-bar {
   font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -417,12 +418,12 @@ header .section-gradient{
 .content-section {
   padding-top: 200px;
   &#mixes{
-    padding-top: 100px;
+    padding-top: 40px;
   }
 }
 
 #about.content-section {
-  padding-top: 240px;
+  padding-top: 110px;
 }
 
 #mix-list{
@@ -573,6 +574,124 @@ section#waves
 }
 
 
+#mixes{
+
+  .mix-group{
+    &__title{
+      font-size: 13pt;
+      font-weight: normal;
+    }
+  }
+
+  h3{
+    margin-bottom: 10px;
+  }
+
+  p{
+    font-size: 12pt;
+    color: #ccc;
+    margin-bottom: 5px;
+  }
+
+  .ratings-bar {
+
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+    &.top-bar{
+      height: 1px;
+      opacity: 0.3;
+    }
+
+    &.bottom-bar{
+      margin-top: 70px;
+      margin-bottom: 0px;
+      height: 40px;
+
+       > div:hover{
+        .v-rating{
+          color: white;
+        }
+
+        .rating-block{
+          opacity: 1 !important;
+        }
+      }
+
+      > div{
+        cursor: pointer;
+      }
+      
+      .rating-block{
+        opacity: 0.5;
+      }
+      .v-rating{
+        text-align: center;
+        letter-spacing: 2px;
+        color: #ddd;
+      }
+    }
+
+    .rating{
+      border-right: 1px solid black;
+    }
+    .rating-block{
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .rating-block[data-rating="1"]{ background-color: $rating-1-color; }
+    .rating-block[data-rating="2"]{ background-color: $rating-2-color; }
+    .rating-block[data-rating="3"]{ background-color: $rating-3-color; }
+    .rating-block[data-rating="4"]{ background-color: $rating-4-color; }
+    .rating-block[data-rating="5"]{ background-color: $rating-5-color; }
+    .rating-block[data-rating="6"]{ background-color: $rating-6-color; }
+    .rating-block[data-rating="7"]{ background-color: $rating-7-color; }
+    .rating-block[data-rating="8"]{ background-color: $rating-8-color; }
+    .rating-block[data-rating="9"]{ background-color: $rating-9-color; }
+    .rating-block[data-rating="10"]{ background-color: $rating-10-color; }
+
+  }//ratings-bar
+
+  .v-descriptions{
+      
+    height: 30px;
+
+    > p{
+      display: none;
+    }
+  }
+  .mix-group{
+    margin-top: 20px;
+  }
+
+  .calm{
+    text-align: left;
+  }
+
+  .intense{
+    
+    text-align: right;
+
+    .mix{
+      text-align: right;
+
+      .cp-container{
+        float: right;
+      } 
+      .mix__details{
+        margin-right: 67px;
+        margin-left: 0;
+      }
+    }
+  }
+
+}
+
+
+
+
 .mix{
 
   text-align: left;
@@ -613,16 +732,16 @@ section#waves
     color: white;
   }
 
-  &[data-rating="1"]  .rating{ color: #6ad1ff; }
-  &[data-rating="2"]  .rating{ color: #6affe1; }
-  &[data-rating="3"]  .rating{ color: #6affa4; }
-  &[data-rating="4"]  .rating{ color: #9eff6a; }
-  &[data-rating="5"]  .rating{ color: #d5ff6a; }
-  &[data-rating="6"]  .rating{ color: #ffe800; }
-  &[data-rating="7"]  .rating{ color: #ffd66a; }
-  &[data-rating="8"]  .rating{ color: #ffba6a; }
-  &[data-rating="9"]  .rating{ color: #d67f58; }
-  &[data-rating="10"] .rating{ color: #ff6a6a; } 
+  &[data-rating="1"]  .rating{ color: $rating-1-color; }
+  &[data-rating="2"]  .rating{ color: $rating-2-color; }
+  &[data-rating="3"]  .rating{ color: $rating-3-color; }
+  &[data-rating="4"]  .rating{ color: $rating-4-color; }
+  &[data-rating="5"]  .rating{ color: $rating-5-color; }
+  &[data-rating="6"]  .rating{ color: $rating-6-color; }
+  &[data-rating="7"]  .rating{ color: $rating-7-color; }
+  &[data-rating="8"]  .rating{ color: $rating-8-color; }
+  &[data-rating="9"]  .rating{ color: $rating-9-color; }
+  &[data-rating="10"] .rating{ color: $rating-10-color; } 
 }// .mix
 
 hr{

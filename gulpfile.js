@@ -74,9 +74,10 @@ gulp.task('minify-js', ['templates'], function() {
                     // cause they're not being generated-then-included properly, sequentially, asynchronously
                     // 'build/templates.js', 
                     'js/circle-player/*.js',
-                    'js/grayscale.js',  
+                    'js/grayscale.js',
+                    'js/homepage-animations.js',    
                     'js/site.js'
-                    ])
+                    ]) 
       .pipe(sourcemaps.init())
         .pipe(concat('all.js'))
         .pipe(rename({
