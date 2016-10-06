@@ -48,39 +48,40 @@ $(function  () {
   };// intense mixes
 
   //inject handlebars templates with mix data
-  injectTemplates(calm_mixes,     'calm-mixes-tmpl');
-  injectTemplates(intense_mixes,  'intense-mixes-tmpl'); 
+  injectTemplates(intense_mixes,  'intense'); 
+  injectTemplates(calm_mixes,     'calm');
 
   //set up the audio players
-  initCirclePlayers(calm_mixes);
-  initCirclePlayers(intense_mixes);
+  initCirclePlayers(calm_mixes.mixes);
+  initCirclePlayers(intense_mixes.mixes);
+  
+  console.log("Mixes outside func: " + mixes);
 
-  function injectTemplates(data, mix_template_id){
+  function injectTemplates(data, type){
 
     var html = MyApp.templates.mixes(data);
-    // var html = Handlebars.templates.mixes(data);
-    $('#'+mix_template_id).html(html);
+    $('#mixes-tmpl-'+type).html(html);
    
     html = MyApp.templates.jplayers(data);
-    // html = Handlebars.templates.jplayers(data);
-    $('#jplayers-tmpl').html(html);
+    $('#jplayers-tmpl-'+type).html(html);
   } 
 
-  function initCirclePlayers(mixes){
-    // mixes.forEach(function(mix){
-    //   new CirclePlayer(
-    //     "#jquery_jplayer_"+mix.slug,
-    //     {
-    //       mp3: MIX_PATH+mix.slug+".mp3",
-    //       m4a: MIX_PATH+mix.slug+".m4a"
-    //     }, {
-    //       cssSelectorAncestor: "#cp_container_"+mix.slug
-    //     }
-    //   );
-    // });
+  function initCirclePlayers(mix_list){
+    console.log("mix_list INSIDE func: " + mix_list);
+    mix_list.forEach(function(mix){
+      new CirclePlayer(
+        "#jquery_jplayer_"+mix.slug,
+        {
+          mp3: MIX_PATH+mix.slug+".mp3",
+          m4a: MIX_PATH+mix.slug+".m4a"
+        }, {
+          cssSelectorAncestor: "#cp_container_"+mix.slug
+        }
+      );
+    });
   }
 
 });
   
-// debugger;
 
+ 

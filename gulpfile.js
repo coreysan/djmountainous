@@ -6,6 +6,7 @@ var browserSync = require('browser-sync').create();
 var header      = require('gulp-header');
 var cleanCSS    = require('gulp-clean-css');
 var rename      = require("gulp-rename");
+var babel       = require("gulp-babel");//ES6 - ES2015
 var concat      = require("gulp-concat");
 var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
@@ -79,6 +80,9 @@ gulp.task('minify-js', ['templates'], function() {
                     'js/site.js'
                     ]) 
       .pipe(sourcemaps.init())
+        // .pipe(babel({
+        //     presets: ['es2015']
+        // }))
         .pipe(concat('all.js'))
         .pipe(rename({
           suffix: '-min',// why doesn't .min work here!???
