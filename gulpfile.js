@@ -9,6 +9,7 @@ var rename      = require("gulp-rename");
 var babel       = require("gulp-babel");//ES6 - ES2015
 var concat      = require("gulp-concat");
 var uglify      = require('gulp-uglify');
+var gulpUtil    = require('gulp-util');
 var sourcemaps  = require('gulp-sourcemaps');
 
 var handlebars  = require('gulp-handlebars');
@@ -78,16 +79,17 @@ gulp.task('minify-js', ['templates'], function() {
                     'js/grayscale.js',
                     'js/homepage-animations.js',    
                     'js/site.js'
-                    ]) 
+                    ])
       .pipe(sourcemaps.init())
-        // .pipe(babel({
-        //     presets: ['es2015']
-        // }))
+        // .pipe(babel()) 
+        //babel causes parse-error, so {presets: ['es2015']}
+        // is given. That preset causes csstransform js file
+        // to fail, likely due to strict mode. fffuuuuhk. 
         .pipe(concat('all.js'))
         .pipe(rename({
           suffix: '-min',// why doesn't .min work here!???
         }))
-        .pipe(uglify())
+        .pipe(uglify().on('error', gulpUtil.log))
         .pipe(header(banner, { pkg: pkg }))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('build'))

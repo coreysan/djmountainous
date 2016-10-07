@@ -26,11 +26,11 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
-        title: "Seven Lions Warm-up",
-        genres: "Dreamstep",
+        title: "Blueprint 19th Warm-up",
+        genres: "Heavy",
         date: "October 2016",
-        slug: "djmountainous-seven-lions-warm-up-mix",
-        rating: 7
+        slug: "dj-mountainous-blueprint-19-warmup",
+        rating: 9
       },{
         title: "Live @ BirthRave 2016",
         genres: "Bass Funk, Trap, Dub",
@@ -63,7 +63,7 @@ $(function  () {
     html = MyApp.templates.jplayers(data);
     $('#jplayers-tmpl-'+type).html(html);
   }  
-
+ 
   function initCirclePlayers(mix_list){
 
     mix_list.forEach(function(mix){

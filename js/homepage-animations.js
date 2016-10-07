@@ -1,7 +1,6 @@
   
 /* 
   Animate ratings bar by changing opacity of several blocks
-
   */
 $(function(){
   
@@ -15,23 +14,23 @@ $(function(){
     return;
   }
 
-  var test = 0;
+
+  // Every x ms, do:
+  //  reset all opacities
+  //  choose x random rating blocks to darken
+  //  choose a random block from that group to darken, overlap ok
   setInterval(function() {
 
     //each time, a different number of blocks are chosen
     var blocks_to_blank = Math.floor(Math.random()*num_ratings)+1;
     
-    //reset all opacities
     $rating_blocks.css('opacity', '0.4');
                   // .css('height', original_block_height+'px');
- 
-    //choose x random rating blocks to darken
+
     for (var i = 0; i < blocks_to_blank; i++) {
-      //choose a random block to darken, overlap is ok
       var rand_block_index = Math.floor(Math.random()*num_ratings)+1;
       $rating_blocks.eq(rand_block_index)
                     .css('opacity', '0.5');
-                    // .css('height', (original_block_height+(num_ratings-blocks_to_blank))+'px');
     } 
   }, ANIMATION_PERIOD);
 
