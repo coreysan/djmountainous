@@ -31,10 +31,7 @@ $(function(){
     for (var i = 0; i < blocks_to_blank; i++) {
       var rand_block_index = Math.floor(Math.random()*num_ratings)+1;
 
-
       if(!$rating_blocks.eq(rand_block_index).hasClass('active')){
-      console.log('Manipping '+$rating_blocks.eq(rand_block_index).attr('class'));
-
         $rating_blocks.eq(rand_block_index)
                       .css('opacity', INCREASED_OPACITY);
       }
@@ -44,7 +41,7 @@ $(function(){
 
 
   // control showing V-rating descriptions on hover of V-color button
-  $('.bottom-bar > div').on('mouseenter click', function(){
+  $('.bottom-bar > div').on('click', function(){
     var rating = $(this).find('.rating-block').data('rating');
     showAndHighlightRating(rating);
   });
@@ -81,11 +78,11 @@ $(function(){
 
   //scroll that element's top  
   setTimeout(function(){ 
-    // console.log('Scrolling to '+($('.'+search).offset().top-260);
+
     $('html, body').scrollTop($('.'+search).offset().top-300);
     $('.mix').not('.'+search).css('opacity', 0.6);
     $('.mix-group__title, .group-description').css('opacity', 0.6);
-  }, 1500);
+  }, 1800);
 
   //when anything is clicked, set the opacity of the mixes back to 1
   $('*').on('click', function(){

@@ -29,7 +29,7 @@ $(function  () {
       //new mix goes here
       {
         title: "Blueprint 19th Warm-up",
-        genres: "Heavy",
+        genres: "Rezz Griz Grime W.S.N DFrancis",
         date: "October 2016",
         slug: "blueprint-19-warmup",
         rating: 9
