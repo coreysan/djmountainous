@@ -1,6 +1,8 @@
 $(function  () {
 
-  var MIX_PATH = "http://djmountainous.com/mixes/";
+  var MIX_PATH = "http://djmountainous.com/mixes/dj-mountainous-";
+  // mixes MUST be named dj-moutainous-{slug}.(mp3/m4a)
+  // i.e. dj-mountainous-va-tech-house
 
   var calm_mixes = {
     mixes: [
@@ -9,14 +11,14 @@ $(function  () {
         title: "The Eiger",
         genres: "Tech House",
         date: "Sept 2016",
-        slug: "dj-mountainous-va-tech-house",
+        slug: "va-tech-house",
         rating: 3
       },
       {
         title: "Garibaldi",
         genres: "Deep House",
         date: "June 2016",
-        slug: "dj-mountainous-va-deep-house-v2",
+        slug: "va-deep-house-v2",
         rating: 2
       },
     ]
@@ -29,19 +31,19 @@ $(function  () {
         title: "Blueprint 19th Warm-up",
         genres: "Heavy",
         date: "October 2016",
-        slug: "dj-mountainous-blueprint-19-warmup",
+        slug: "blueprint-19-warmup",
         rating: 9
       },{
         title: "Live @ BirthRave 2016",
         genres: "Bass Funk, Trap, Dub",
         date: "Sept 24, 2016",
-        slug: "dj-mountainous-live-birthrave-2016-bass-funk-dub",
+        slug: "live-birthrave-2016-bass-funk-dub",
         rating: 8
       },{ 
         title: "Black Tusk",
         genres: "Trap & Dubstep",
         date: "August 2016",
-        slug: "dj-mountainous-va-dubtrap",
+        slug: "va-dubtrap",
         rating: 9
       }
     ]

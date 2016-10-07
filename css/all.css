@@ -526,6 +526,8 @@ section#waves {
       font-weight: normal; }
     .mix .mix__details .date {
       font-style: italic; }
+    .mix .mix__details .rating {
+      cursor: pointer; }
   .mix .rating {
     color: white; }
   .mix[data-rating="1"] .rating {

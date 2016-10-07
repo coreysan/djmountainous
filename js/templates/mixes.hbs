@@ -1,6 +1,6 @@
 {{#each mixes}}
 
-    <div class="mix" data-rating="{{rating}}">
+    <div class="mix {{slug}}" data-rating="{{rating}}">
       <h3>{{title}}</h3>
       <div id="cp_container_{{slug}}" class="cp-container">
         <div class="cp-buffer-holder"> 
@@ -23,7 +23,7 @@
       <div class="mix__details"
         <h5>
           <div class="genres progressive"> 
-            <span class="rating">
+            <span class="rating" data-rating="{{rating}}">
               V{{rating}}
             </span>
             {{genres}}
@@ -34,7 +34,7 @@
         </h5>
         
         <div class="downloads">
-          <a href="http://djmountainous.com/mixes/{{slug}}.mp3">mp3 dl</a>
+          <a href="http://djmountainous.com/mixes/dj-mountainous-{{slug}}.mp3">mp3 dl</a>
         </div>  
       </div> <!-- .mix__details -->
     </div><!-- .mix -->
