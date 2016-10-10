@@ -35,7 +35,7 @@ $(function(){
         $rating_blocks.eq(rand_block_index)
                       .css('opacity', INCREASED_OPACITY);
       }
-    } 
+    }
   }, ANIMATION_PERIOD);
 
 
@@ -70,29 +70,28 @@ $(function(){
 });
 
 
-
 $(function(){
 
   //get the stub from the url, like djmountainous.com?blueprint-19-warmup
   var search = window.location.search.replace("?", "");
-
+ 
   //scroll that element's top  
   setTimeout(function(){ 
 
-    $('html, body').scrollTop($('.'+search).offset().top-300);
-    $('.mix').not('.'+search).css('opacity', 0.6);
-    $('.mix-group__title, .group-description').css('opacity', 0.6);
-  }, 1800);
+    // $('html, body').scrollTop($('.'+search).offset().top-300);
+    // $('.mix').not('.'+search).css('opacity', 0.6);
+    // $('.mix-group__title, .group-description').css('opacity', 0.6);
+  }, 1800); 
 
   //when anything is clicked, set the opacity of the mixes back to 1
   $('*').on('click', function(){
     $('.mix').css('opacity', 1);
-  });
-   
+  }); 
+    
   $('#mixes').on('click', '.mix__details .rating', function(){
     $('.rating-block[data-rating="'+$(this).data('rating')+'"]').closest('div').trigger('hover');
     $('.rating-block[data-rating="'+$(this).data('rating')+'"]').closest('div').trigger('click');
     $('html, body').scrollTop($('.bottom-bar').offset().top-130);
   });
-
+  
 });  

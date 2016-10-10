@@ -28,7 +28,7 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
-        title: "Blueprint 19th Warm-up",
+        title: "Blueprint 19th Warmup",
         genres: "Rezz Griz Grime W.S.N DFrancis",
         date: "October 2016",
         slug: "blueprint-19-warmup",
@@ -45,41 +45,26 @@ $(function  () {
         date: "August 2016",
         slug: "va-dubtrap",
         rating: 9
+      },{
+        title: "Seven Lions warmup",
+        genres: "Dreamstep",
+        date: "October 2016",
+        slug: "seven-lions-warm-up-mix",
+        rating: 7
       }
     ]
   };// intense mixes
 
-  //inject handlebars templates with mix data
+  // //inject handlebars templates with mix data
   injectTemplates(intense_mixes,  'intense'); 
   injectTemplates(calm_mixes,     'calm');
-
-  //set up the audio players
-  initCirclePlayers(calm_mixes.mixes); 
-  initCirclePlayers(intense_mixes.mixes);
   
   function injectTemplates(data, type){
 
     var html = MyApp.templates.mixes(data);
     $('#mixes-tmpl-'+type).html(html);
-   
-    html = MyApp.templates.jplayers(data);
-    $('#jplayers-tmpl-'+type).html(html);
   }  
- 
-  function initCirclePlayers(mix_list){
 
-    mix_list.forEach(function(mix){
-      new CirclePlayer(
-        "#jquery_jplayer_"+mix.slug,
-        {
-          mp3: MIX_PATH+mix.slug+".mp3",
-          m4a: MIX_PATH+mix.slug+".m4a"
-        }, {
-          cssSelectorAncestor: "#cp_container_"+mix.slug
-        }
-      );
-    });
-  }
 
 });
   

@@ -75,21 +75,25 @@ gulp.task('minify-js', ['templates'], function() {
                     // templates not included in minify
                     // cause they're not being generated-then-included properly, sequentially, asynchronously
                     // 'build/templates.js', 
-                    'js/circle-player/*.js',
+                    // 'js/circle-player/*.js',
+                    'js/audio-player.js',
                     'js/grayscale.js',
                     'js/homepage-animations.js',    
                     'js/site.js'
                     ])
       .pipe(sourcemaps.init())
-        // .pipe(babel()) 
-        //babel causes parse-error, so {presets: ['es2015']}
+        // .pipe(babel(
+        //             // {presets: ['es2015']}
+        //             )) 
+        //babel causes parse-error in uglify(), so... 
+        // {presets: ['es2015']}
         // is given. That preset causes csstransform js file
         // to fail, likely due to strict mode. fffuuuuhk. 
         .pipe(concat('all.js'))
         .pipe(rename({
           suffix: '-min',// why doesn't .min work here!???
         }))
-        .pipe(uglify().on('error', gulpUtil.log))
+        // .pipe(uglify().on('error', gulpUtil.log))
         .pipe(header(banner, { pkg: pkg }))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('build'))
