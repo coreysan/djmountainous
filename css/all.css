@@ -310,7 +310,7 @@ body {
   color: #bbb; }
 
 .way-subdued {
-  color: #999; }
+  color: #333; }
 
 header .section-gradient {
   height: 140px; }
@@ -469,25 +469,25 @@ section#waves {
   #mixes .ratings-bar .rating-block {
     height: 10px;
     overflow: hidden; }
-  #mixes .ratings-bar .rating-block[data-rating="1"] {
+  #mixes .ratings-bar .rating-block[data-rating="1"], #mixes .ratings-bar .rating-bg[data-rating="1"] {
     background-color: #6ad1ff; }
-  #mixes .ratings-bar .rating-block[data-rating="2"] {
+  #mixes .ratings-bar .rating-block[data-rating="2"], #mixes .ratings-bar .rating-bg[data-rating="2"] {
     background-color: #6affe1; }
-  #mixes .ratings-bar .rating-block[data-rating="3"] {
+  #mixes .ratings-bar .rating-block[data-rating="3"], #mixes .ratings-bar .rating-bg[data-rating="3"] {
     background-color: #6affa4; }
-  #mixes .ratings-bar .rating-block[data-rating="4"] {
+  #mixes .ratings-bar .rating-block[data-rating="4"], #mixes .ratings-bar .rating-bg[data-rating="4"] {
     background-color: #9eff6a; }
-  #mixes .ratings-bar .rating-block[data-rating="5"] {
+  #mixes .ratings-bar .rating-block[data-rating="5"], #mixes .ratings-bar .rating-bg[data-rating="5"] {
     background-color: #d5ff6a; }
-  #mixes .ratings-bar .rating-block[data-rating="6"] {
+  #mixes .ratings-bar .rating-block[data-rating="6"], #mixes .ratings-bar .rating-bg[data-rating="6"] {
     background-color: #ffe800; }
-  #mixes .ratings-bar .rating-block[data-rating="7"] {
+  #mixes .ratings-bar .rating-block[data-rating="7"], #mixes .ratings-bar .rating-bg[data-rating="7"] {
     background-color: #ffd66a; }
-  #mixes .ratings-bar .rating-block[data-rating="8"] {
+  #mixes .ratings-bar .rating-block[data-rating="8"], #mixes .ratings-bar .rating-bg[data-rating="8"] {
     background-color: #ffba6a; }
-  #mixes .ratings-bar .rating-block[data-rating="9"] {
+  #mixes .ratings-bar .rating-block[data-rating="9"], #mixes .ratings-bar .rating-bg[data-rating="9"] {
     background-color: #d67f58; }
-  #mixes .ratings-bar .rating-block[data-rating="10"] {
+  #mixes .ratings-bar .rating-block[data-rating="10"], #mixes .ratings-bar .rating-bg[data-rating="10"] {
     background-color: #ff6a6a; }
 
 #mixes .v-descriptions {
@@ -500,55 +500,139 @@ section#waves {
 
 #mixes .calm {
   text-align: left; }
+  #mixes .calm .intense-only {
+    display: none; }
 
 #mixes .intense {
   text-align: right; }
   #mixes .intense .mix {
     text-align: right; }
-    #mixes .intense .mix .cp-container {
+    #mixes .intense .mix .audio-controls {
       float: right; }
     #mixes .intense .mix .mix__details {
-      margin-right: 67px;
+      margin-right: 50px;
       margin-left: 0; }
 
-.mix {
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+/* AUDIO PLAYER */
+.audio-player {
   text-align: left;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 40px; }
-  .mix h3 {
+  .audio-player h3 {
     margin-bottom: 10px; }
-  .mix .mix__details {
-    margin-left: 67px; }
-    .mix .mix__details .h3,
-    .mix .mix__details .h5 {
-      font-weight: normal; }
-    .mix .mix__details .date {
-      font-style: italic; }
-    .mix .mix__details .rating {
+  .audio-player.playing .audio-controls .play-pause {
+    background-image: url(../img/mtnplayer/pause-button.png);
+    -webkit-animation: spin 40s ease-in-out infinite;
+    -moz-animation: spin 40s ease-in-out infinite;
+    animation: spin 40s ease-in-out infinite; }
+  .audio-player.playing .audio-controls__background {
+    background-color: #21e61e; }
+  .audio-player.playing .progress-bar {
+    background-color: #222; }
+  .audio-player.playing .times {
+    display: block; }
+    .audio-player.playing .times .current-time, .audio-player.playing .times .mix-length {
+      color: #eee; }
+  .audio-player .audio-controls {
+    width: 48px;
+    height: 48px;
+    margin-top: 6px;
+    position: relative;
+    float: left;
+    overflow: hidden; }
+    .audio-player .audio-controls .play-pause, .audio-player .audio-controls__background {
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+    .audio-player .audio-controls .play-pause {
+      cursor: pointer;
+      background: url(../img/mtnplayer/play-button.png) no-repeat;
+      background-size: cover;
+      outline: none; }
+    .audio-player .audio-controls__background {
+      border-radius: 50%;
+      width: 95%;
+      height: 95%;
+      top: 1px;
+      left: 1px;
+      background-color: #0aab07; }
+  .audio-player .progress-bar {
+    height: 2px;
+    width: 100%;
+    background-color: #000;
+    position: relative;
+    transition: 120ms all; }
+    .audio-player .progress-bar.expanded {
+      height: 10px;
       cursor: pointer; }
-  .mix .rating {
+      .audio-player .progress-bar.expanded .played {
+        background-color: #0f0;
+        border-right: 2px solid white; }
+    .audio-player .progress-bar .played, .audio-player .progress-bar .buffer {
+      position: absolute;
+      height: 100%;
+      pointer-events: none; }
+    .audio-player .progress-bar .played {
+      border-right: 0;
+      width: 0%;
+      background-color: #030; }
+    .audio-player .progress-bar .buffer {
+      background-color: #999;
+      width: 0%; }
+  .audio-player .times {
+    display: none;
+    margin-bottom: 10px;
+    margin-top: 5px; }
+    .audio-player .times .current-time, .audio-player .times .mix-length {
+      color: #555; }
+    .audio-player .times .divider {
+      display: none;
+      color: #666; }
+  .audio-player .mix__details {
+    margin-left: 55px; }
+    .audio-player .mix__details .h3,
+    .audio-player .mix__details .h5 {
+      font-weight: normal; }
+    .audio-player .mix__details .date {
+      font-style: italic; }
+    .audio-player .mix__details .rating {
+      cursor: pointer; }
+  .audio-player .rating {
     color: white; }
-  .mix[data-rating="1"] .rating {
+  .audio-player[data-rating="1"] .rating {
     color: #6ad1ff; }
-  .mix[data-rating="2"] .rating {
+  .audio-player[data-rating="2"] .rating {
     color: #6affe1; }
-  .mix[data-rating="3"] .rating {
+  .audio-player[data-rating="3"] .rating {
     color: #6affa4; }
-  .mix[data-rating="4"] .rating {
+  .audio-player[data-rating="4"] .rating {
     color: #9eff6a; }
-  .mix[data-rating="5"] .rating {
+  .audio-player[data-rating="5"] .rating {
     color: #d5ff6a; }
-  .mix[data-rating="6"] .rating {
+  .audio-player[data-rating="6"] .rating {
     color: #ffe800; }
-  .mix[data-rating="7"] .rating {
+  .audio-player[data-rating="7"] .rating {
     color: #ffd66a; }
-  .mix[data-rating="8"] .rating {
+  .audio-player[data-rating="8"] .rating {
     color: #ffba6a; }
-  .mix[data-rating="9"] .rating {
+  .audio-player[data-rating="9"] .rating {
     color: #d67f58; }
-  .mix[data-rating="10"] .rating {
+  .audio-player[data-rating="10"] .rating {
     color: #ff6a6a; }
 
 hr {
@@ -556,51 +640,6 @@ hr {
   margin-top: 20px;
   margin-bottom: 40px;
   border-top: 2px solid #0aab07; }
-
-/* Audio player overrides */
-.cp-controls {
-  position: absolute;
-  top: 13px;
-  left: 13px;
-  margin: 0;
-  padding: 0; }
-
-.cp-buffer-holder,
-.cp-progress-holder {
-  clip: rect(0, 50px, 50px, 25px); }
-
-.cp-buffer-holder, .cp-circle-control, .cp-progress-holder, .cp-container, .cp-buffer-1, .cp-buffer-2, .cp-progress-1, .cp-progress-2 {
-  width: 50px;
-  height: 50px; }
-
-.cp-controls li a {
-  transition: none;
-  width: 25px;
-  height: 25px; }
-
-.cp-buffer-1, .cp-buffer-2, .cp-progress-1, .cp-progress-2 {
-  clip: rect(0, 25px, 50px, 0);
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px; }
-
-.cp-container {
-  margin: 0px auto 0;
-  margin-top: 3px;
-  background-position-y: 0;
-  background-position-x: 0;
-  padding: 0px 0px 0;
-  float: left; }
-
-.cp-controls .cp-play:hover {
-  background-position-x: -24px; }
-
-.cp-controls .cp-pause {
-  background-position-y: -24px; }
-
-.cp-controls .cp-pause:hover {
-  background-position-x: -24px;
-  background-position-y: -24px; }
 
 .no-gutter > [class*='col-'] {
   padding-right: 0;

@@ -46,6 +46,9 @@ $(function(){
   }
   audioPlayer.prototype.playTrack = function($audioPlayer){
 
+    ga('send', 'event', 'Mix', 'play', 
+      this.$audioPlayer.attr('id'), this.$audioPlayer.data('rating'));
+
     this.pauseAllOthers();
     this.track.play();
     this.$audioPlayer.addClass('playing');
@@ -122,9 +125,11 @@ $(function(){
     player.seek(event);
   });
 
-
-
-
-
+  //send google-analytics stats for a mix download
+  $('body').on('click', '.download', function(event){
+    ga('send', 'event', 'Mix', 'download', 
+      $(this).closest('.audio-player').attr('id'), 
+      $(this).closest('.audio-player').data('rating'));
+  });
 
 }); 

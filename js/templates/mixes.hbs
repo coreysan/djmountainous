@@ -1,42 +1,55 @@
 {{#each mixes}}
 
-    <div class="mix {{slug}}" data-rating="{{rating}}">
-      <h3>{{title}}</h3>
-      <div id="cp_container_{{slug}}" class="cp-container">
-        <div class="cp-buffer-holder"> 
-          <div class="cp-buffer-1"></div>
-          <div class="cp-buffer-2"></div>
-        </div>
-        <div class="cp-progress-holder"> 
-          <div class="cp-progress-1"></div>
-          <div class="cp-progress-2"></div>
-        </div>
-        <div class="cp-circle-control"></div>
-        <ul class="cp-controls">
-          <li><a class="cp-play" tabindex="1">{{!-- play --}}</a></li>
-          <li>
-            <a class="cp-pause" style="display:none;" tabindex="1">{{!-- pause --}}</a>
-          </li> 
-        </ul>
-      </div>
+<section id="{{slug}}" class="mix audio-player {{slug}}" data-rating="{{rating}}">
+  <h3>{{title}}</h3>
 
-      <div class="mix__details"
-        <h5>
-          <div class="genres progressive"> 
-            <span class="rating" data-rating="{{rating}}">
-              V{{rating}}
-            </span>
-            {{genres}}
-          </div> 
-           <div class="date way-subdued">
-            {{date}}
-          </div>
-        </h5>
-        
-        <div class="downloads">
-          <a href="http://djmountainous.com/mixes/dj-mountainous-{{slug}}.mp3">mp3 dl</a>
-        </div>  
-      </div> <!-- .mix__details -->
-    </div><!-- .mix -->
+  <div class="row no-gutter">
+    <div class="col-xs-2 intense-only"></div>
+    <div class="col-xs-10">
+      <div class="progress-bar rating-bg">
+        <div class="buffer">
+        </div>
+        <div class="played">
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="times">
+    <span class="current-time"></span>
+    <span class="divider">/</span>
+    <span class="mix-length"></span>
+  </div>
+
+  <div class="audio-controls">
+    <div class="audio-controls__background">
+    </div>
+    <div class="play-pause">
+    </div>
+  </div>
+
+  <div class="mix__details"
+    <h5>
+      <div class="genres progressive"> 
+        <span class="rating" data-rating="{{rating}}">
+          V{{rating}}
+        </span>
+        {{genres}}
+      </div> 
+       <div class="date way-subdued">
+        {{date}}
+      </div>
+    </h5>
+     
+    <div class="downloads">
+      <a class="download" href="http://djmountainous.com/mixes/dj-mountainous-{{slug}}.mp3" download>mp3 dl</a>
+    </div>  
+  </div> <!-- .mix__details -->
+
+  <audio id="audio-va-tech-house">
+    <source src="http://djmountainous.com/mixes/dj-mountainous-{{slug}}.m4a" type="audio/m4a">
+    </source>
+    <source src="http://djmountainous.com/mixes/dj-mountainous-{{slug}}.mp3" type="audio/mpeg"></source>
+  </audio>
+</section><!-- .mix -->
 
 {{/each}}
