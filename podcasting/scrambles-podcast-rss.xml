@@ -16,7 +16,7 @@
   </itunes:owner>
   
   <itunes:explicit>No</itunes:explicit>
-  <itunes:image href="http://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
+  <itunes:image href="https://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
 
   <itunes:category text="Music">
   </itunes:category>
@@ -38,10 +38,10 @@
     <itunes:author>DJ Mountainous</itunes:author>
     <itunes:duration>38:56</itunes:duration>
     <pubDate>October 12, 2016 09:00:00 GMT</pubDate>
-    <enclosure url="http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3"length="69674723"type="audio/mpeg"/>
-    <link>http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</link>
-    <guid>http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</guid>
-    <itunes:image ="http://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
+    <enclosure url="https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3"length="69674723"type="audio/mpeg"/>
+    <link>https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</link>
+    <guid>https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</guid>
+    <itunes:image ="https://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
     <itunes:summary>A run through some of the moment's hardest and heaviest trap and (dare I say it?) dubstep.</itunes:summary>
     <itunes:keywords>DJ Mountainous scrambles dubstep trap electro heavy</itunes:keywords>
   </item>
