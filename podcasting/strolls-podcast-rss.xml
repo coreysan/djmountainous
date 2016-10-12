@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>DJ Mountainous Strolls</title>
+  <itunes:subtitle>Deep beats for all</itunes:subtitle>
+  <link>http://www.djmountainous.com/</link>
+  <language>en-us</language>
+  <description>Deep house beats along level ground.</description>
+  <itunes:summary>Deep house beats along level ground.</itunes:summary>
+
+  <itunes:author>DJ Mountainous</itunes:author>
+  <itunes:owner>
+    <itunes:name>DJ Mountainous</itunes:name>
+    <itunes:email>djmountainous@gmail.com</itunes:email>
+  </itunes:owner>
+  
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:image href="https://djmountainous.com/podcasting/strolls-podcast-logo.jpg"/>
+
+  <itunes:category text="Music">
+    <itunes:category text="Electronic" />
+  </itunes:category>
+
+  <itunes:category text="Music">
+    <itunes:category text="Easy Listening" />
+  </itunes:category>
+
+  <itunes:category text="Music">
+    <itunes:category text="Electronic">
+      <itunes:category text="Downtempo" />
+    </itunes:category>
+  </itunes:category>
+
+  <item>
+    <title>#001 of Strolls: Helm Creek</title>
+    <description>A meandering stroll through helm creek. Soothing, natural sounds with a few dancy beats.</description>
+    <itunes:duration>53:02</itunes:duration>
+    <pubDate>October 13, 2016 20:00:00 GMT</pubDate>
+    <enclosure url="https://djmountainous.com/mixes/dj-mountainous-helm-creek-ambient-deep.mp3" length="69674723" type="audio/mpeg"/>
+    <link>https://djmountainous.com/mixes/dj-mountainous-helm-creek-ambient-deep.mp3</link>
+    <guid>https://djmountainous.com/mixes/dj-mountainous-helm-creek-ambient-deep.mp3</guid>
+    <itunes:image href="https://djmountainous.com/podcasting/strolls-podcast-logo.jpg"/>
+    <itunes:summary>A meandering stroll through helm creek. Soothing, natural sounds with a few dancy beats.</itunes:summary>
+    <itunes:keywords>DJ Mountainous strolls deep house</itunes:keywords>
+    <author>DJ Mountainous</author>
+    <itunes:author>DJ Mountainous</itunes:author>
+  </item>
+
+</channel>
+</rss>
