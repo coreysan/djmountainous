@@ -4,13 +4,20 @@
 
 $(function(){
 
+  const progressMilestones = [1, 2, 3, 4, 5, 6, 25, 50, 75, 95];
+
   var audioPlayer = function($audioPlayer){
 
     this.$audioPlayer = $audioPlayer;
+    this.stub = this.$audioPlayer.attr('id');
+    this.rating = this.$audioPlayer.data('rating');
 
     this.$playPauseBtn = this.$audioPlayer.find('.play-pause').eq(0);
     this.$track = this.$audioPlayer.find('audio').eq(0);
     this.track = this.$track.get(0);
+
+    this.isPastMilestone = {}; //eventually populated with progress Milestones as listed in progressMilestones array
+    this.constructMilestones();
 
     this.$progressBar = this.$audioPlayer.find('.progress-bar').eq(0);
     this.$buffer      = this.$progressBar.find('.buffer').eq(0);
@@ -23,14 +30,40 @@ $(function(){
     this.trackRefreshTimer = null;
   }
 
+  audioPlayer.prototype.constructMilestones = function(){
+    progressMilestones.forEach((milestone) => {
+      this.isPastMilestone[milestone] = false;
+    });
+  }
+
+  /*
+
+    Keep checking if progress is past the next milestone
+
+    If it is, log a progress event and ensure 
+    no more progress events are sent for this mix
+
+  */
+  audioPlayer.prototype.sendProgressEvents = function(){
+
+    let progress = (this.track.currentTime / this.track.duration) * 100;
+
+    progressMilestones.forEach((milestone) => {
+      if(progress > milestone){
+        if(!this.isPastMilestone[milestone]){  //past it for the first time
+          this.isPastMilestone[milestone] = true;
+          ga('send', 'event', 'Mix', 'progress', this.stub, milestone);
+        }
+      }
+    }); 
+  }
+
   //Pause all tracks on the page other than 'this' one
   audioPlayer.prototype.pauseAllOthers = function(){
 
     $('.audio-player').not(this.$audioPlayer).each(function(){
-      
       var playr = new audioPlayer($(this));
       playr.pauseTrack();
-
     });
   }
 
@@ -47,7 +80,7 @@ $(function(){
   audioPlayer.prototype.playTrack = function($audioPlayer){
 
     ga('send', 'event', 'Mix', 'play', 
-      this.$audioPlayer.attr('id'), this.$audioPlayer.data('rating'));
+      this.stub, this.rating);
 
     this.pauseAllOthers();
     this.track.play();
@@ -67,9 +100,12 @@ $(function(){
   audioPlayer.prototype.clearInterval = function(){
     clearInterval(this.trackRefreshTimer);
   }
+
+  // One tick of the song rolls by and the time is update
   audioPlayer.prototype.tick = function(){
     this.$currentTime.text(this.currentTimeString());
     this.updateProgressBar();
+    this.sendProgressEvents();
   }
 
   audioPlayer.prototype.updateProgressBar = function(){
