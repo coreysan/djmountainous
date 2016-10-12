@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>Scrambles</title>
+  <itunes:subtitle>with DJ Mountainous</itunes:subtitle>
+  <link>http://www.djmountainous.com/</link>
+  <language>en-us</language>
+  <description>The heavier side of electro. Beats on the bleeding edge.</description>
+
+  <itunes:author>DJ Mountainous</itunes:author>
+  <itunes:summary>The heavier side of electro. Beats on the bleeding edge</itunes:summary>
+  <itunes:owner>
+    <itunes:name>DJ Mountainous</itunes:name>
+    <itunes:email>djmountainous@gmail.com</itunes:email>
+  </itunes:owner>
+  
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:image href="http://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
+
+  <itunes:category text="Music">
+  </itunes:category>
+
+  <itunes:category text="Music">
+    <itunes:category text="Electronic" />
+  </itunes:category>
+
+  <itunes:category text="Music">
+    <itunes:category text="Electronic">
+      <itunes:category text="Big Beat" />
+    </itunes:category>
+  </itunes:category>
+
+  <item>
+    <title>#001 of Scrambles: DubTrap</title>
+    <description>A run through some of the moment's hardest and heaviest trap and (dare I say it?) dubstep.</description>
+    <author>DJ Mountainous</author>
+    <itunes:author>DJ Mountainous</itunes:author>
+    <itunes:duration>38:56</itunes:duration>
+    <pubDate>October 12, 2016 09:00:00 GMT</pubDate>
+    <enclosure url="http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3"length="69674723"type="audio/mpeg"/>
+    <link>http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</link>
+    <guid>http://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</guid>
+    <itunes:image ="http://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
+    <itunes:summary>A run through some of the moment's hardest and heaviest trap and (dare I say it?) dubstep.</itunes:summary>
+    <itunes:keywords>DJ Mountainous scrambles dubstep trap electro heavy</itunes:keywords>
+  </item>
+
+</channel>
+</rss>
