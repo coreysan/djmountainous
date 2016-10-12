@@ -1,6 +1,5 @@
 $(function  () {
 
-  var MIX_PATH = "http://djmountainous.com/mixes/dj-mountainous-";
   // mixes MUST be named dj-moutainous-{slug}.(mp3/m4a)
   // i.e. dj-mountainous-va-tech-house
 
