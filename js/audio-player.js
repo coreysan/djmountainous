@@ -4,7 +4,7 @@
 
 $(function(){
 
-  const progressMilestones = [1, 2, 3, 4, 5, 6, 25, 50, 75, 95];
+  const progressMilestones = [1, 2, 4, 8, 10, 25, 50, 75, 95];
 
   var audioPlayer = function($audioPlayer){
 
