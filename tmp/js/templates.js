@@ -31,11 +31,11 @@ this["MyApp"]["templates"]["mixes"] = Handlebars.template({"1":function(containe
     + alias4(((helper = (helper = helpers.genres || (depth0 != null ? depth0.genres : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"genres","hash":{},"data":data}) : helper)))
     + "\n      </div> \n       <div class=\"date way-subdued\">\n        "
     + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
-    + "\n      </div>\n    </h5>\n     \n    <div class=\"downloads\">\n      <a class=\"download\" href=\"http://djmountainous.com/mixes/dj-mountainous-"
+    + "\n      </div>\n    </h5>\n     \n    <div class=\"downloads\">\n      <a class=\"download\" href=\"mixes/dj-mountainous-"
     + alias4(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"slug","hash":{},"data":data}) : helper)))
-    + ".mp3\" download>mp3 dl</a>\n    </div>  \n  </div> <!-- .mix__details -->\n\n  <audio id=\"audio-va-tech-house\">\n    <source src=\"http://djmountainous.com/mixes/dj-mountainous-"
+    + ".mp3\" download>mp3 dl</a>\n    </div>  \n  </div> <!-- .mix__details -->\n\n  <audio id=\"audio-va-tech-house\">\n    <source src=\"mixes/dj-mountainous-"
     + alias4(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"slug","hash":{},"data":data}) : helper)))
-    + ".m4a\" type=\"audio/m4a\">\n    </source>\n    <source src=\"http://djmountainous.com/mixes/dj-mountainous-"
+    + ".m4a\" type=\"audio/m4a\">\n    </source>\n    <source src=\"mixes/dj-mountainous-"
     + alias4(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"slug","hash":{},"data":data}) : helper)))
     + ".mp3\" type=\"audio/mpeg\"></source>\n  </audio>\n</section><!-- .mix -->\n\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
