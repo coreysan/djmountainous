@@ -50,9 +50,9 @@ $(function(){
 
     progressMilestones.forEach((milestone) => {
       if(progress > milestone){
-        if(!this.isPastMilestone[milestone]){  //past it for the first time
+        if(!this.isPastMilestone[milestone]){  //past milestone for the first time
           this.isPastMilestone[milestone] = true;
-          ga('send', 'event', 'Mix', 'progress', this.stub, milestone);
+          ga('send', 'event', 'Mix', 'progress-'+milestone, this.stub);
         }
       }
     }); 
