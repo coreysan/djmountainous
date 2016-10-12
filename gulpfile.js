@@ -8,6 +8,7 @@ var cleanCSS    = require('gulp-clean-css');
 var rename      = require("gulp-rename");
 var babel       = require("gulp-babel");//ES6 - ES2015
 var concat      = require("gulp-concat");
+var useref      = require("gulp-useref");
 var uglify      = require('gulp-uglify');
 var gulpUtil    = require('gulp-util');
 var sourcemaps  = require('gulp-sourcemaps');
@@ -33,23 +34,23 @@ gulp.task('default', ['sass', 'minify-css', 'templates', 'minify-js', 'copy']);
 gulp.task('sass', function() {
     return gulp.src('sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(header(banner, { pkg: pkg }))
-        .pipe(concat('all.css'))
-        .pipe(gulp.dest('./css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
+        // .pipe(header(banner, { pkg: pkg }))
+        // .pipe(concat('all.css'))
+        .pipe(gulp.dest('tmp/css'))
+        // .pipe(browserSync.reload({
+        //     stream: true
+        // }))
 });
 
 // Minify CSS
 gulp.task('minify-css', function() {
-  return gulp.src('css/**/*.css')
+  return gulp.src('tmp/css/**/*.css')
       .pipe(cleanCSS({ compatibility: 'ie8' }))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest('./build'))
-      .pipe(browserSync.reload({
-            stream: true
-        }))  
+      // .pipe(rename({ suffix: '.min' }))
+      .pipe(gulp.dest('dist'))
+      // .pipe(browserSync.reload({
+      //       stream: true
+      //   }))  
 });
 
 
@@ -67,7 +68,15 @@ gulp.task('templates', function(){
       noRedeclare: true, // Avoid duplicate declarations 
     }))
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest('tmp/js/'));
+});
+
+gulp.task('html', function(){
+  return gulp.src('src/*.html')
+        .pipe(useref())
+        // .pipe(gulpif('*.js', uglify()))
+        // .pipe(gulpif('*.css', minifyCss()))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('minify-js', ['templates'], function() {
@@ -82,9 +91,9 @@ gulp.task('minify-js', ['templates'], function() {
                     'js/site.js'
                     ])
       .pipe(sourcemaps.init())
-        // .pipe(babel(
-        //             // {presets: ['es2015']}
-        //             )) 
+        .pipe(babel(
+                    { presets: ['es2015'] }
+                    ))
         //babel causes parse-error in uglify(), so... 
         // {presets: ['es2015']}
         // is given. That preset causes csstransform js file
@@ -93,7 +102,7 @@ gulp.task('minify-js', ['templates'], function() {
         .pipe(rename({
           suffix: '-min',// why doesn't .min work here!???
         }))
-        // .pipe(uglify().on('error', gulpUtil.log))
+        .pipe(uglify().on('error', gulpUtil.log))
         .pipe(header(banner, { pkg: pkg }))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('build'))

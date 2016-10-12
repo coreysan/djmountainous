@@ -16,11 +16,12 @@ $(function(){
     return;
   }
 
-  // Every x ms, do:
+  // Every x ms, do...
   //  reset all opacities
   //  choose x random rating blocks to darken
   //  choose a random block from that group to darken, overlap ok
-  setInterval(function() {
+  // setInterval(function() {
+  setInterval(() => {
 
     //each time, a different number of blocks are chosen
     var blocks_to_blank = Math.floor(Math.random()*num_ratings)+1;
@@ -37,7 +38,6 @@ $(function(){
       }
     }
   }, ANIMATION_PERIOD);
-
 
 
   // control showing V-rating descriptions on hover of V-color button
@@ -60,7 +60,6 @@ $(function(){
       .css('opacity', DEFAULT_OPACITY)
       .removeClass('active');
 
-    //
     $('.bottom-bar > div .rating-block[data-rating="'+rating+'"]')
       .css('opacity', 1)
       .addClass('active');
@@ -76,15 +75,15 @@ $(function(){
   var search = window.location.search.replace("?", "");
  
   //scroll that element's top  
-  setTimeout(function(){ 
+  // setTimeout(function(){ 
 
-    // $('html, body').scrollTop($('.'+search).offset().top-300);
-    // $('.mix').not('.'+search).css('opacity', 0.6);
-    // $('.mix-group__title, .group-description').css('opacity', 0.6);
-  }, 1800); 
+  //   // $('html, body').scrollTop($('.'+search).offset().top-300);
+  //   // $('.mix').not('.'+search).css('opacity', 0.6);
+  //   // $('.mix-group__title, .group-description').css('opacity', 0.6);
+  // }, 1800); 
 
   //when anything is clicked, set the opacity of the mixes back to 1
-  $('*').on('click', function(){
+  $('*').on('click', () => {
     $('.mix').css('opacity', 1);
   }); 
     
