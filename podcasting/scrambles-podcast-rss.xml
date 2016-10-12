@@ -41,7 +41,7 @@
     <enclosure url="https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3" length="69674723" type="audio/mpeg"/>
     <link>https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</link>
     <guid>https://djmountainous.com/mixes/dj-mountainous-va-dubtrap.mp3</guid>
-    <itunes:image ="https://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
+    <itunes:image href="https://djmountainous.com/podcasting/scrambles-podcast-logo.jpg"/>
     <itunes:summary>A run through some of the moment's hardest and heaviest trap and (dare I say it?) dubstep.</itunes:summary>
     <itunes:keywords>DJ Mountainous scrambles dubstep trap electro heavy</itunes:keywords>
   </item>
