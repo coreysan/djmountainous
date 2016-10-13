@@ -2,7 +2,10 @@ logs
 *.log
 npm-debug.log*
 
-
+# Ignore the local index.html so it doesn't overwrite the server's symbolic link to 
+# dist/index.html
+# server serves minified html
+index.html
 
 # Runtime data
 pids

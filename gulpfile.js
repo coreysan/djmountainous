@@ -10,9 +10,9 @@ var babel       = require("gulp-babel");//ES6 - ES2015
 var concat      = require("gulp-concat");
 var useref      = require("gulp-useref");
 var uglify      = require('gulp-uglify');
+var cacheBust   = require('gulp-cache-bust');
 var gulpUtil    = require('gulp-util');
 var sourcemaps  = require('gulp-sourcemaps');
-
 var handlebars  = require('gulp-handlebars');
 var wrap        = require('gulp-wrap');
 var declare     = require('gulp-declare');
@@ -28,37 +28,51 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'templates', 'minify-js', 'copy']);
+gulp.task('default', ['html', 'sass', 'templates', 'js', 'copy']);
+
 
 // Sass task to compile the sass files and add the banner
 gulp.task('sass', function() {
     return gulp.src('sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        // .pipe(header(banner, { pkg: pkg }))
-        // .pipe(concat('all.css'))
-        .pipe(gulp.dest('tmp/'))
+        .pipe(gulp.dest('tmp/css'))
+        .pipe(sourcemaps.init())
+        //no concat - only one file
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(rename({
+          basename: 'all',
+          suffix: '.min',
+          extname: ".css"
+        }))
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist'))
         // .pipe(browserSync.reload({
         //     stream: true
         // }))
 });
 
-// Minify CSS
-gulp.task('minify-css', function() {
-  return gulp.src('tmp/**/*.css')
-      .pipe(cleanCSS({ compatibility: 'ie8' }))
-      // .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest('dist'))
-      // .pipe(browserSync.reload({
-      //       stream: true
-      //   }))  
-});
+/* Replaces references in index.html 
+  with references to minified js/css files
 
+  Also concats js/css files listed, but those files will be overwritten with truly minified versions
+  given by custom tasks herein
+*/
+gulp.task('html', function(){
+  return gulp.src('index.html')
+        .pipe(useref())//replace refs for dist
+        //no minification - no gain
+        .pipe(cacheBust({
+            type: 'timestamp'
+        }))
+        .pipe(gulp.dest('dist'));
+});
 
 //== JS SECTION START ==\\
 // gulp handlebar templates into templates.js
 // can't get this to work
 gulp.task('templates', function(){
-  gulp.src('js/templates/*.hbs')
+  gulp.src('src/**/*.hbs')
     .pipe(handlebars({
       handlebars: require('handlebars')
     }))
@@ -68,44 +82,37 @@ gulp.task('templates', function(){
       noRedeclare: true, // Avoid duplicate declarations 
     }))
     .pipe(concat('templates.js'))
-    .pipe(gulp.dest('tmp/js/'));
+    .pipe(uglify().on('error', gulpUtil.log))
+    .pipe(rename({
+          suffix: '.min',
+          extname: ".js"
+        }))
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('html', function(){
-  return gulp.src('src/*.html')
-        .pipe(useref())
-        // .pipe(gulpif('*.js', uglify()))
-        // .pipe(gulpif('*.css', minifyCss()))
-        .pipe(gulp.dest('dist'));
-});
 
-gulp.task('minify-js', ['templates'], function() {
+gulp.task('js', ['templates'], function() {
   return gulp.src( [
                     // templates not included in minify
                     // cause they're not being generated-then-included properly, sequentially, asynchronously
-                    // 'build/templates.js', 
-                    // 'js/circle-player/*.js',
-                    'js/audio-player.js',
-                    'js/grayscale.js',
-                    'js/homepage-animations.js',    
-                    'js/site.js'
+                    // 'src/js/templates/templates.js', 
+                    'src/js/audio-player.js',
+                    'src/js/grayscale.js',
+                    'src/js/homepage-animations.js',    
+                    'src/js/site.js'
                     ])
       .pipe(sourcemaps.init())
-        .pipe(babel(
-                    { presets: ['es2015'] }
-                    ))
-        //babel causes parse-error in uglify(), so... 
-        // {presets: ['es2015']}
-        // is given. That preset causes csstransform js file
-        // to fail, likely due to strict mode. fffuuuuhk. 
-        .pipe(concat('all.js'))
+        .pipe(babel({presets: ['es2015']}))
+        .pipe(concat('all'))
         .pipe(rename({
-          suffix: '-min',// why doesn't .min work here!???
+          basename: 'all',
+          suffix: '.min',
+          extname: ".js"
         }))
         .pipe(uglify().on('error', gulpUtil.log))
         .pipe(header(banner, { pkg: pkg }))
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest('build'))
+      .pipe(gulp.dest('dist'))
       // .pipe(browserSync.reload({
       //     stream: true
       // }))
@@ -150,18 +157,9 @@ gulp.task('browserSync', function() {
 });
 
 // Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
-gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() {
-    gulp.watch('sass/*.sass', ['sass']);    
-    gulp.watch('css/*.css', ['minify-css']);
-    gulp.watch('js/*.js', ['minify-js']);
-    // Reloads the browser whenever HTML or JS files change
-    gulp.watch('*.html', browserSync.reload);
-    gulp.watch('js/**/*.js', browserSync.reload);
-});
-
 gulp.task('watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
-  gulp.watch('./css/**/*.css', ['minify-css']);
-  gulp.watch('./js/**/*.hbs', ['templates', 'minify-js']);
-  gulp.watch('./js/**/*.js', ['minify-js']);
+  gulp.watch('./src/**/*.scss', ['sass']);
+  gulp.watch('index.html', ['html']);
+  gulp.watch('./src/**/*.js', ['js']);
+  gulp.watch('./src/**/*.hbs', ['templates', 'js']);
 });
