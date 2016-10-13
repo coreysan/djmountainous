@@ -620,6 +620,9 @@ section#waves {
       cursor: pointer; }
     .audio-player .mix__details .downloads a {
       color: #067105; }
+    .audio-player .mix__details .fb-like {
+      opacity: 0.8;
+      margin-top: 5px; }
   .audio-player .rating {
     color: white; }
   .audio-player[data-rating="1"] .rating {

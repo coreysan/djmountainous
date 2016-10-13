@@ -76,7 +76,6 @@ $(function(){
  
   //scroll that element's top  
   setTimeout(function(){ 
-    // $('html, body').scrollTop($('.'+search).offset().top-300);
     $('.mix').not('.'+search).css('opacity', 0.5);
     $('.mix-group__title, .group-description').css('opacity', 0.5);
   }, 0); 
