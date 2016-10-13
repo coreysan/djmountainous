@@ -36,7 +36,7 @@ gulp.task('sass', function() {
         .pipe(sass().on('error', sass.logError))
         // .pipe(header(banner, { pkg: pkg }))
         // .pipe(concat('all.css'))
-        .pipe(gulp.dest('tmp/css'))
+        .pipe(gulp.dest('tmp/'))
         // .pipe(browserSync.reload({
         //     stream: true
         // }))
@@ -44,7 +44,7 @@ gulp.task('sass', function() {
 
 // Minify CSS
 gulp.task('minify-css', function() {
-  return gulp.src('tmp/css/**/*.css')
+  return gulp.src('tmp/**/*.css')
       .pipe(cleanCSS({ compatibility: 'ie8' }))
       // .pipe(rename({ suffix: '.min' }))
       .pipe(gulp.dest('dist'))

@@ -75,15 +75,14 @@ $(function(){
   var search = window.location.search.replace("?", "");
  
   //scroll that element's top  
-  // setTimeout(function(){ 
-
-  //   // $('html, body').scrollTop($('.'+search).offset().top-300);
-  //   // $('.mix').not('.'+search).css('opacity', 0.6);
-  //   // $('.mix-group__title, .group-description').css('opacity', 0.6);
-  // }, 1800); 
+  setTimeout(function(){ 
+    // $('html, body').scrollTop($('.'+search).offset().top-300);
+    $('.mix').not('.'+search).css('opacity', 0.5);
+    $('.mix-group__title, .group-description').css('opacity', 0.5);
+  }, 0); 
 
   //when anything is clicked, set the opacity of the mixes back to 1
-  $('*').on('click', () => {
+  $('*').on('click', () => { 
     $('.mix').css('opacity', 1);
   }); 
     

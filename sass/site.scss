@@ -470,10 +470,18 @@ header .section-gradient{
       z-index: -1;
 
       video.name-waves{
-        max-width: 236px;
+        max-width: 236px; 
       }
     }
   }//.name-wrapper  
+}
+
+#mix{
+
+  height: 10px;
+  width: 100%;
+  top: 150px;
+  position: absolute;
 }
 
 section#waves
@@ -489,13 +497,14 @@ section#waves
     top: 0;
     width: 100%;
     margin: 0;
+    min-height: 112px;
 
     .mixes-title-wrapper{
       
-        position: absolute;
-        width: 100%;    
-        height: 100%;
-        z-index: 100;
+      position: absolute;
+      width: 100%;    
+      height: 100%;
+      z-index: 100;
       
       .mixes-title{
         text-align: center;
@@ -511,6 +520,7 @@ section#waves
 
       overflow: hidden;
       position: relative;
+      min-height: 111px;
 
       .wave-gradient{
         position: absolute;
@@ -747,7 +757,7 @@ section#waves
 
     width: 48px;
     height: 48px;
-    margin-top: 6px;
+    margin-top: 0; 
     position: relative;
     float: left;
     overflow: hidden;
@@ -835,15 +845,21 @@ section#waves
       font-weight: normal;
     }
 
+    .genres{
+      margin-top: 4px;
+    }
+
     .date{
       font-style: italic;  
+      margin-right: 10px;
     }
 
     .rating{
       cursor: pointer;
     }
 
-    .downloads{
+    .downloads a{
+      color: $primary-subdued-color;
     }
   }
 
