@@ -69,13 +69,19 @@ $(function(){
 });
 
 
+
+/* 
+  Handle direct-link via query string. 
+  get the stub from the url, like djmountainous.com?blueprint-19-warmup
+
+  Link like above is input, 
+*/
 $(function(){
 
-  //get the stub from the url, like djmountainous.com?blueprint-19-warmup
   var search = window.location.search.replace("?", "");
  
-  //scroll that element's top  
-  setTimeout(function(){ 
+  // //scroll that element's top  
+  setTimeout(function(){  
     $('.mix').not('.'+search).css('opacity', 0.5);
     $('.mix-group__title, .group-description').css('opacity', 0.5);
   }, 0); 

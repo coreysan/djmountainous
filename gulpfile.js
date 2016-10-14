@@ -30,20 +30,19 @@ var banner = ['/*!\n',
 // Default task
 gulp.task('default', ['html', 'sass', 'templates', 'js', 'copy']);
 
-
 // Sass task to compile the sass files and add the banner
 gulp.task('sass', function() {
-    return gulp.src('sass/**/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('tmp/css'))
-        .pipe(sourcemaps.init())
-        //no concat - only one file
-        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(rename({
           basename: 'all',
           suffix: '.min',
           extname: ".css"
         }))
+        .pipe(gulp.dest('tmp'))
+        .pipe(sourcemaps.init())
+        //no concat - only one file
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(header(banner, { pkg: pkg }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist'))
@@ -55,8 +54,9 @@ gulp.task('sass', function() {
 /* Replaces references in index.html 
   with references to minified js/css files
 
-  Also concats js/css files listed, but those files will be overwritten with truly minified versions
-  given by custom tasks herein
+  Also concats js/css files listed, but those files are not minified. 
+
+  Minified/sourcemapped js.css files are given by the js and sass tasks.
 */
 gulp.task('html', function(){
   return gulp.src('index.html')
@@ -87,6 +87,7 @@ gulp.task('templates', function(){
           suffix: '.min',
           extname: ".js"
         }))
+    .pipe(gulp.dest('tmp'))
     .pipe(gulp.dest('dist'));
 });
 
