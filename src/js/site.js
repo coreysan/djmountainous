@@ -7,6 +7,12 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
+        title: "Helm Creek",
+        genres: "Deep House, Chilled",
+        date: "October 2016",
+        slug: "helm-creek-ambient-deep",
+        rating: 1
+      },{
         title: "The Eiger",
         genres: "Tech House",
         date: "Sept 2016",
