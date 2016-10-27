@@ -22,15 +22,15 @@
     <meta property="og:image"              content="https://djmountainous.com/img/full-mountainous-logo.png" />
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css?cacheok?t=1476487387994" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css?cacheok?t=1476678847283" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css?cacheok?t=1476487387994" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css?cacheok?t=1476678847283" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
     <!-- uses gulp-useref -->
-    <link rel="stylesheet" href="all.min.css?t=1476487387994">
+    <link rel="stylesheet" href="all.min.css?t=1476678847283">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -190,15 +190,12 @@
 
     <section id="waves">
       <div class="row no-gutter wave-row">
-  
-        <div class="mixes-title-wrapper">
-          <h2 class="mixes-title">Mixes</h2>
-        </div>
 
         <div class="col-xs-6">
           <div class="wave-wrapper">
-            <video class="section-waves left" 
-                    autoplay loop muted> <!-- poster="img/wave-black.jpg" -->
+            <video id="video-left"
+              class="section-waves left" 
+              autoplay loop muted> <!-- poster="img/wave-black.jpg" -->
               <source src="waves.mp4" type="video/mp4">
             </video>
             <div class="wave-gradient left-gradient"></div>
@@ -206,14 +203,18 @@
         </div>
         <div class="col-xs-6">
           <div class="wave-wrapper">
-            <video class="section-waves right rev" 
+            <video id="video-right"
+              class="section-waves right rev" 
                     autoplay loop muted> <!-- poster="img/wave-black.jpg" -->
               <source src="waves.mp4" type="video/mp4">
             </video>
             <div class="wave-gradient right-gradient"></div>
           </div>
         </div>
-      </div>
+  
+        <h2 class="mixes-title">Mixes</h2>
+
+      </div><!-- wave-row -->
     </section>
 
     <section id="mixes" class="container content-section text-center">
@@ -377,9 +378,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <script src="templates.min.js?t=1476487387994"></script>
+    <script src="templates.min.js?t=1476678847283"></script>
 
-    <script src="all.min.js?t=1476487387994"></script>
+    <script src="all.min.js?t=1476678847283"></script>
 
     <!-- preload these images -->
     <img src="img/mtnplayer/pause-button.png" alt="">

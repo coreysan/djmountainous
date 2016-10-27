@@ -80,7 +80,12 @@ $(function(){
 
   var search = window.location.search.replace("?", "");
  
-  // //scroll that element's top  
+  if(search.length === 0)
+  {
+    return;
+  }
+
+  // set other mixes to nothing
   setTimeout(function(){  
     $('.mix').not('.'+search).css('opacity', 0.5);
     $('.mix-group__title, .group-description').css('opacity', 0.5);
@@ -97,4 +102,34 @@ $(function(){
     $('html, body').scrollTop($('.bottom-bar').offset().top-130);
   });
   
+});  
+
+/* 
+  Fade play button in
+*/
+$(function(){
+
+  //   // //scroll that element's top  
+  setTimeout(function(){  
+    $('.audio-controls__background').removeClass('start-position');
+  }, 10); 
+
+});   
+
+
+/* 
+  stabilize videos by restarting them every X seconds (legnth of video)
+*/
+$(function(){
+
+  setInterval(function(){  
+    ['video-left', 'video-right'].forEach((videoId) => {
+      console.log("Restarting video-left");
+      mediaElement = document.getElementById(videoId); 
+      mediaElement.pause(); 
+      mediaElement.currentTime = 0;
+      mediaElement.play(); 
+    })
+  }, 34000);//video length is 34 seconds 
+
 });  

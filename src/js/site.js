@@ -63,12 +63,12 @@ $(function  () {
   // //inject handlebars templates with mix data
   injectTemplates(intense_mixes,  'intense'); 
   injectTemplates(calm_mixes,     'calm');
-  
+
   function injectTemplates(data, type){
 
     var html = MyApp.templates.mixes(data);
-    $('#mixes-tmpl-'+type).html(html);
-  }  
+    $('#mixes-tmpl-'+type).html(html); 
+  }   
 
 
 });
