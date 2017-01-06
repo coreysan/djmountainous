@@ -7,6 +7,13 @@ $(function  () {
     mixes: [
       //new mix goes here
       {
+        title: "Elfin Lakes",
+        genres: "House, Progressive, Trance",
+        date: "January 2017",
+        slug: "elfin-lakes",
+        rating: 4
+      },
+      {
         title: "Helm Creek",
         genres: "Deep House, Chilled",
         date: "October 2016",
