@@ -72,13 +72,8 @@ $(function  () {
   injectTemplates(calm_mixes,     'calm');
 
   function injectTemplates(data, type){
-
     var html = MyApp.templates.mixes(data);
     $('#mixes-tmpl-'+type).html(html); 
   }   
 
-
 });
-  
-
- 
